@@ -1,9 +1,9 @@
 package scenarioes;
 
+import scraper.templatescraper.TemplateScraper;
 import scraper.templatescraper.templates.ArticleTemplate;
 import scraper.HTML.HtmlElement;
 import scraper.Scraper;
-import scraper.templatescraper.TemplateScraper;
 
 import java.io.File;
 import java.util.ArrayList;

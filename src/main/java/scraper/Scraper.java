@@ -1,7 +1,6 @@
 package scraper;
 
 import scraper.HTML.HtmlElement;
-import scraper.templatescraper.TemplateScraper;
 
 import java.io.File;
 import java.util.ArrayList;
