@@ -1,4 +1,4 @@
-package scraper.HTML;
+package scraper.html;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ public class HtmlElement {
         this.attributes = attributes;
     }
 
-    public HtmlElement getChild(String s) {
+    public HtmlElement getChildByXPath(String s) {
         return null;
     }
 
