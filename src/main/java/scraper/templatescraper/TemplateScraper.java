@@ -6,6 +6,7 @@ import java.io.File;
 
 public abstract class TemplateScraper {
     public enum SourceType {URL, FILE, STRING}
+    private Scraper scraper;
 
     public void setSource(String source, SourceType sourceType) {
 
@@ -14,6 +15,6 @@ public abstract class TemplateScraper {
 
     }
     public Scraper getScraper(){
-        return null;
+        return scraper;
     }
 }
