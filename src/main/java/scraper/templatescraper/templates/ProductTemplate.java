@@ -1,12 +1,14 @@
 package scraper.templatescraper.templates;
 
-public interface ProductTemplate  {
+import scraper.templatescraper.TemplateScraper;
 
-    default String getName() {
+public abstract class ProductTemplate extends TemplateScraper {
+
+    String getName() {
         return null;
     }
 
-    default float getPrice() {
+    float getPrice() {
         return 0;
     }
 

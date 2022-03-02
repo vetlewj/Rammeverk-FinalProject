@@ -1,10 +1,19 @@
 package scraper.templatescraper;
 
+import scraper.Scraper;
+
 import java.io.File;
 
-public interface TemplateScraper {
-    String getName(String className, String HtmlTag);
-    String getPrice(String className, String HtmlTag);
-    void setSource(String source, int sourcetype);
-    void setSource(File file);
+public abstract class TemplateScraper {
+    public enum SourceType {URL, FILE, STRING}
+
+    public void setSource(String source, SourceType sourceType) {
+
+    }
+    public void setSource(File file){
+
+    }
+    public Scraper getScraper(){
+        return null;
+    }
 }
