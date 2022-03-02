@@ -35,16 +35,23 @@ public class Scraper {
         return null;
     }
 
-    public ArrayList<HtmlElement> getElementsFromClass(String className){
+    public ArrayList<HtmlElement> getElementsFromClass(String className) {
         return null;
     }
-    public ArrayList<HtmlElement> getElementsByXpath(String xPath){
+
+    public ArrayList<HtmlElement> getElementsByXpath(String xPath) {
         return null;
     }
-    public HtmlElement getElementById(String id){
+
+    public HtmlElement getElementByXpath(String xPath) {
         return null;
     }
-    public String getTitle(){
+
+    public HtmlElement getElementById(String id) {
+        return null;
+    }
+
+    public String getTitle() {
         return null;
     }
 }
