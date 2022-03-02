@@ -39,7 +39,7 @@ public class Main {
         }
 
 
-        // 04.01
+        // 04
         class KomplettProductTemplate extends ProductTemplate {
 
             private String name;
@@ -55,10 +55,7 @@ public class Main {
                 return this.price;
             }
         }
-
-        // 04.02
-        // TemplateScraper product = TemplateScraper.create({{"name", "//div[@class=\"h2 bold my - spacer - none\"][1]"}, {"price", "//pwr-price"});
-
+        
 
         //05
         class CountryTemplate extends ArticleTemplate {
