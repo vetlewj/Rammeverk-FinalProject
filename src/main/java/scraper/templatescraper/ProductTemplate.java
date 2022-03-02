@@ -1,4 +1,4 @@
-package scraper.templatescraper.templates;
+package scraper.templatescraper;
 
 import scraper.templatescraper.TemplateScraper;
 

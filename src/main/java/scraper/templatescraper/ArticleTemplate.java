@@ -1,6 +1,6 @@
-package scraper.templatescraper.templates;
+package scraper.templatescraper;
 
-import scraper.HTML.HtmlElement;
+import scraper.html.HtmlElement;
 import scraper.templatescraper.TemplateScraper;
 
 import java.io.File;

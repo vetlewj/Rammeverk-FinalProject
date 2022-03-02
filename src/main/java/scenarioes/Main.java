@@ -1,10 +1,10 @@
 package scenarioes;
 
 import scraper.templatescraper.TemplateScraper;
-import scraper.templatescraper.templates.ArticleTemplate;
-import scraper.HTML.HtmlElement;
+import scraper.templatescraper.ArticleTemplate;
+import scraper.html.HtmlElement;
 import scraper.Scraper;
-import scraper.templatescraper.templates.ProductTemplate;
+import scraper.templatescraper.ProductTemplate;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -55,7 +55,7 @@ public class Main {
                 return this.price;
             }
         }
-        
+
 
         //05
         class CountryTemplate extends ArticleTemplate {
@@ -65,7 +65,7 @@ public class Main {
             public HashMap<String, String> getFacts() {
                 ArrayList<HtmlElement> factsArray = getScraper().getElementsByXpath("//[@class=\"factbox__facts\"]");
                 for (HtmlElement el : factsArray) {
-                    facts.put(el.getChild("//[@class=\"factbox__fact - term\"]").toString(), el.getChild("//[@class=\"factbox__fact - description\"]").toString());
+                    facts.put(el.getChildByXPath("//[@class=\"factbox__fact - term\"]").toString(), el.getChildByXPath("//[@class=\"factbox__fact - description\"]").toString());
                 }
                 return facts;
             }
