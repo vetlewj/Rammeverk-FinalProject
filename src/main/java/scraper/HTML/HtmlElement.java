@@ -7,6 +7,7 @@ public class HtmlElement {
     private String tag;
     private HashMap<String, String> attributes;
     private ArrayList<HtmlElement> childElements;
+    private String content;
 
     public HtmlElement() {
     }
@@ -14,5 +15,14 @@ public class HtmlElement {
     public HtmlElement(String tag, HashMap<String, String> attributes) {
         this.tag = tag;
         this.attributes = attributes;
+    }
+
+    public HtmlElement getChild(String s) {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return content;
     }
 }
