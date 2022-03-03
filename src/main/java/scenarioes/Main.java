@@ -65,7 +65,7 @@ public class Main {
             public HashMap<String, String> getFacts() {
                 ArrayList<HtmlElement> factsArray = getScraper().getElementsByXpath("//[@class=\"factbox__facts\"]");
                 for (HtmlElement el : factsArray) {
-                    facts.put(el.getChildByXPath("//[@class=\"factbox__fact - term\"]").toString(), el.getChildByXPath("//[@class=\"factbox__fact - description\"]").toString());
+                    facts.put(el.getChildByXPath("//[@class=\"factbox__fact-term\"]").toString(), el.getChildByXPath("//[@class=\"factbox__fact - description\"]").toString());
                 }
                 return facts;
             }
