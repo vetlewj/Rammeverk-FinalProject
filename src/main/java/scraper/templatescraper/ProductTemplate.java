@@ -4,11 +4,11 @@ import scraper.templatescraper.TemplateScraper;
 
 public abstract class ProductTemplate extends TemplateScraper {
 
-    String getName() {
+    public String getName() {
         return null;
     }
 
-    float getPrice() {
+    public float getPrice() {
         return 0;
     }
 
