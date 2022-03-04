@@ -1,4 +1,4 @@
-package scenarioes;
+package scenarios;
 
 import scraper.templatescraper.TemplateScraper;
 import scraper.templatescraper.ArticleTemplate;
