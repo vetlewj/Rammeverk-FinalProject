@@ -5,14 +5,24 @@ import scraper.Scraper;
 import java.io.File;
 
 public abstract class TemplateScraper {
-    public enum SourceType {URL, FILE, STRING}
+    private enum SourceType {URL, FILE, STRING}
     private Scraper scraper;
 
-    public void setSource(String source, SourceType sourceType) {
+    private void setSource(String source, SourceType sourceType) {
 
     }
-    public void setSource(File file){
+    private void setSource(File file){
 
+    }
+
+    public void setSourceAsUrl(String url){
+        setSource(url, SourceType.URL);
+    }
+    public void setSourceAsString(String htmlString){
+        setSource(htmlString, SourceType.STRING);
+    }
+    public void setSourceAsFile(File file){
+        setSource(file);
     }
     public Scraper getScraper(){
         return scraper;

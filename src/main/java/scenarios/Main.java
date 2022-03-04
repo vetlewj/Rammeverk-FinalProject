@@ -124,7 +124,7 @@ public class Main {
 
         // 06
         CountryTemplate australia = new CountryTemplate();
-        australia.setSource("https://snl.no/Australia", TemplateScraper.SourceType.URL);
+        australia.setSourceAsUrl("https://snl.no/Australia");
 
         HashMap<String, String> australiaFacts;
         australiaFacts = australia.getFacts();
@@ -135,7 +135,7 @@ public class Main {
 
         // 07
         CountryTemplate article = new CountryTemplate();
-        article.setSource("https://snl.no/onomatopoetikon", TemplateScraper.SourceType.URL);
+        article.setSourceAsUrl("https://snl.no/onomatopoetikon");
 
         article.getWriters();
         article.getDatePublished();
@@ -144,7 +144,7 @@ public class Main {
 
         // 08
         CountryTemplate article08 = new CountryTemplate();
-        article.setSource("https://snl.no/Australia", TemplateScraper.SourceType.URL);
+        article.setSourceAsUrl("https://snl.no/Australia");
 
         article.articleToJson();
     }
