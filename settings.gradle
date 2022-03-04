@@ -1,4 +1,2 @@
 rootProject.name = 'Rammeverk-FinalProject'
-include 'src:scenarioes'
-findProject(':src:scenarioes')?.name = 'src/scenarioes'
 
