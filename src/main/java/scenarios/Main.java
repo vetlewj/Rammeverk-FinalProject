@@ -40,7 +40,7 @@ public class Main {
 
 
         // 04
-        class KomplettProductTemplate extends ProductTemplate {
+        class PowerProductTemplate extends ProductTemplate {
 
             private String name;
             private float price;

@@ -4,7 +4,7 @@
 
 3. Set up a webscraper for the html string: "<p>Michelangelo was the name of an Italian sculptor, painter, architect and poet. </p><p>It was also the name of one of the main characters of <a href='#' > Teenage Mutant NinjaTurtles</a>.</p>", retrieve the text from all the p tags and print out the results to the console
 
-4. Create a template for a webscraper made to scrape the name and price from products on komplett.no
+4. Create a template for a webscraper made to scrape the name and price from products on power.no
 
 5. Create a template for a webscraper made to scrape general facts about a country from factbox on articles about countries for snl.no.
 
