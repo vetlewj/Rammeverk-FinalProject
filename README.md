@@ -17,20 +17,20 @@ However, the solution can be compiled and built using gradle.
 After downloading the JAR file, create a new or use an existing project in IntelliJ. In the top menu bar, press File &rarr; 
 Project Structure or press `CTRL + Alt + Shift + S`. 
 
-![File->Project Structure in IntelliJ top menu bar](documentation\images\openProjectStructureMenu.png)
+![File->Project Structure in IntelliJ top menu bar](documentation/images/openProjectStructureMenu.png)
 
 This will open a Project Structure menu. Select library from the menu on the side and then press `+` and select Java.
 
-![Select library from the menu on the side and then click + and select Java](documentation\images\addJavaLibrary.png)
+![Select library from the menu on the side and then click + and select Java](documentation/images/addJavaLibrary.png)
 
 This will open up a window prompting you to select Library files. Locate and select the jar file, and press OK. 
 
-![Locate and select the jar file, and press OK](documentation\images\selectJarFile.png)
+![Locate and select the jar file, and press OK](documentation/images/selectJarFile.png)
 
 After selecting the correct JAR file, press Apply in the Project Structure menu. You can now use the library just like 
 any other library and it will be visible under External Libraries. IntelliSense in IntelliJ should also be able to suggest the classes from the library.
 
-![IntelliSense finds TemplateScraper class](documentation\images\showIntelliSense.png)
+![IntelliSense finds TemplateScraper class](documentation/images/showIntelliSense.png)
 
 ## Scraper
 Scraper is meant to be used as most other web scrapers available, and it requires some familiarity with HTML, XML or 
