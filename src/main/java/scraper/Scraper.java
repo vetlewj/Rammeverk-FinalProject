@@ -61,7 +61,13 @@ public class Scraper {
         return new Scraper(file);
     }
 
-
+    /** Returns the conent of the Scraper in raw format.
+     *
+     * @return Raw output of HTML string, file or url
+     */
+    public String getRawContent(){
+        return this.content.toString();
+    }
 
     /** Converts a String to Document, and sets htmlPage as result
      *
