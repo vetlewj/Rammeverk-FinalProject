@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  * @author Vetle Jahr
- * @version %I%, %G%
+ * @version 1.0
  */
 public class Scraper {
     private enum SourceType {URL, STRING}

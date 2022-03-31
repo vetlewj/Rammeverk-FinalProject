@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 /** Represents a HTML Tag.
  * @author Vetle Jahr
- * @version %I%, %G%
+ * @version 1.0
  */
 public class HtmlElement {
     private HtmlElement rootElement;
