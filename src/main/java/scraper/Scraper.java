@@ -17,13 +17,22 @@ import java.util.ArrayList;
  */
 public class Scraper {
     private enum SourceType {URL, STRING}
+
     private Document content;
 
     public Scraper() {
     }
 
     private Scraper(String source, SourceType sourceType) {
-
+        if (sourceType == SourceType.STRING) {
+            StringToHtmlPage(source);
+        } else if (sourceType == SourceType.URL) {
+            try (InputStream in = new URL(source).openStream()) {
+                StringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private Scraper(File f) {
@@ -31,11 +40,11 @@ public class Scraper {
     }
 
     /**
-    * A method for creating a Scraper object with a URL using a builder pattern.
-    *
-    * @param url URL for the website to use the Scraper object on
-    * @return Scraper Object built with the sepcified url
-    */
+     * A method for creating a Scraper object with a URL using a builder pattern.
+     *
+     * @param url URL for the website to use the Scraper object on
+     * @return Scraper Object built with the sepcified url
+     */
     public static Scraper buildScraperWithURL(String url) {
         return new Scraper(url, SourceType.URL);
     }
@@ -61,15 +70,17 @@ public class Scraper {
         return new Scraper(file);
     }
 
-    /** Returns the conent of the Scraper in raw format.
+    /**
+     * Returns the conent of the Scraper in raw format.
      *
      * @return Raw output of HTML string, file or url
      */
-    public String getRawContent(){
+    public String getRawContent() {
         return this.content.toString();
     }
 
-    /** Converts a String to Document, and sets htmlPage as result
+    /**
+     * Converts a String to Document, and sets htmlPage as result
      *
      * @param source Source String to convert String to Document
      */
