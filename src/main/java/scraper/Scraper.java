@@ -1,8 +1,14 @@
 package scraper;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import scraper.html.HtmlElement;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +16,8 @@ import java.util.ArrayList;
  * @version %I%, %G%
  */
 public class Scraper {
-    private enum SourceType {URL, FILE, STRING}
+    private enum SourceType {URL, STRING}
+    private Document content;
 
     public Scraper() {
     }
@@ -52,6 +59,16 @@ public class Scraper {
     public static Scraper buildScraperWithHtmlFile(File file) {
         // TODO: Add check that file is .html
         return new Scraper(file);
+    }
+
+
+
+    /** Converts a String to Document, and sets htmlPage as result
+     *
+     * @param source Source String to convert String to Document
+     */
+    private void StringToHtmlPage(String source) {
+        this.content = Jsoup.parse(source);
     }
 
     public ArrayList<HtmlElement> getElementsFromTag(String htmlTag) {
