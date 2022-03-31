@@ -8,6 +8,7 @@ import java.util.HashMap;
  * @version %I%, %G%
  */
 public class HtmlElement {
+    private HtmlElement rootElement;
     private String tag;
     private HashMap<String, String> attributes;
     /**
