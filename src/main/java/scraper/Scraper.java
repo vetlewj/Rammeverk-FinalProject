@@ -5,8 +5,12 @@ import scraper.html.HtmlElement;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * @author Vetle Jahr
+ * @version %I%, %G%
+ */
 public class Scraper {
-    private enum SourceType {URL, FILE, STRING, TEMPLATE}
+    private enum SourceType {URL, FILE, STRING}
 
     public Scraper() {
     }
@@ -19,16 +23,35 @@ public class Scraper {
 
     }
 
+    /**
+    * A method for creating a Scraper object with a URL using a builder pattern.
+    *
+    * @param url URL for the website to use the Scraper object on
+    * @return Scraper Object built with the sepcified url
+    */
     public static Scraper buildScraperWithURL(String url) {
         return new Scraper(url, SourceType.URL);
     }
 
+    /**
+     * Method for creating a Scraper object with an HTML string using a builder pattern
+     *
+     * @param htmlString String in HTML format to use the Scraper object on
+     * @return Scraper Object built with a specified String.
+     */
     public static Scraper buildScraperWithString(String htmlString) {
         return new Scraper(htmlString, SourceType.STRING);
     }
 
-    public static Scraper buildScraperWithHtmlFile(File f) {
-        return null;
+    /**
+     * Creates a Scraper Object with an HTML file using a builder pattern
+     *
+     * @param file html-file to use the Scraper object on
+     * @return Scraper object built with a specified file.
+     */
+    public static Scraper buildScraperWithHtmlFile(File file) {
+        // TODO: Add check that file is .html
+        return new Scraper(file);
     }
 
     public ArrayList<HtmlElement> getElementsFromTag(String htmlTag) {
