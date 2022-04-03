@@ -20,23 +20,39 @@ public class Scraper {
 
     private Document content;
 
-    public Scraper() {
+    private Scraper() {
     }
 
     private Scraper(String source, SourceType sourceType) {
         if (sourceType == SourceType.STRING) {
-            StringToHtmlPage(source);
+            this.content = StringToHtmlPage(source);
         } else if (sourceType == SourceType.URL) {
             try (InputStream in = new URL(source).openStream()) {
-                StringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
+                this.content = StringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private Scraper(File f) {
+    private Scraper(File file) {
+        this.content = FileToHtmlPage(file);
+        // TODO: Create exception if file is not found or if file is not HTML
+    }
 
+    /**
+     * Reads a file and parses the content in a Document object.
+     *
+     * @param file File to read into Document object.
+     * @return Document object with parsed content or null object if error occurs.
+     */
+    private Document FileToHtmlPage(File file) {
+        try {
+            return Jsoup.parse(file, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
@@ -79,13 +95,13 @@ public class Scraper {
         return this.content.toString();
     }
 
-    /**
-     * Converts a String to Document, and sets htmlPage as result
+    /** Reads a String and parses the content ot Document object.
      *
-     * @param source Source String to convert String to Document
+     * @param source Soruce String to parse
+     * @return Document object iwht parsed content
      */
-    private void StringToHtmlPage(String source) {
-        this.content = Jsoup.parse(source);
+    private Document StringToHtmlPage(String source) {
+        return Jsoup.parse(source);
     }
 
     public ArrayList<HtmlElement> getElementsFromTag(String htmlTag) {
