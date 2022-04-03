@@ -23,6 +23,15 @@ public class Scraper {
     private Scraper() {
     }
 
+    /**
+     * Private constructor to instantiate a new Scraper object with a URL or a String. Method is private as Scraper
+     * objects are intended to be instantiated with a factory pattern using
+     * {@link #buildScraperWithURL(String) buildScraperWithUrl} and
+     * {@link #buildScraperWithString(String) buildScraperWithString} methods.
+     *
+     * @param source Source for the Scraper to use, either a String to Scraper or a URL for a website to scrape
+     * @param sourceType Enum type of source for the scraper to differantiate between String and URL
+     */
     private Scraper(String source, SourceType sourceType) {
         if (sourceType == SourceType.STRING) {
             this.content = StringToHtmlPage(source);
@@ -35,6 +44,13 @@ public class Scraper {
         }
     }
 
+    /**
+     * Private constructor to instantiate a new Scraper object with a File. Method is private as Scraper objects are
+     * intended to be instatiated with a factory pattern using
+     * {@link #buildScraperWithHtmlFile(File) BuildScraperWithFile} method.
+     *
+     * @param file file for the Scraper to use as Source for the content
+     */
     private Scraper(File file) {
         this.content = FileToHtmlPage(file);
         // TODO: Create exception if file is not found or if file is not HTML
