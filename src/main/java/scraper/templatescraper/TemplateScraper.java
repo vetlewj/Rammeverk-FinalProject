@@ -9,10 +9,15 @@ public abstract class TemplateScraper {
     private Scraper scraper;
 
     private void setSource(String source, SourceType sourceType) {
-
+        if (sourceType == SourceType.URL){
+            scraper = Scraper.buildScraperWithURL(source);
+        }
+        else if (sourceType == SourceType.STRING){
+            scraper = Scraper.buildScraperWithString(source);
+        }
     }
     private void setSource(File file){
-
+        scraper = Scraper.buildScraperWithHtmlFile(file);
     }
 
     public void setSourceAsUrl(String url){
