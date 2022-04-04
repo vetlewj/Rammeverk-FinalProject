@@ -1,8 +1,11 @@
 package scraper.html;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
+import org.jsoup.parser.Tag;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,23 +15,34 @@ import java.util.List;
  * @author Vetle Jahr
  * @version 1.0
  */
-public class HtmlElement {
+public class HtmlElement extends Element{
     private String tag;
     private HashMap<String, String> attributes;
-
     /**
      * Represents the child HTML elements. Only contains the direct children.
      */
     private ArrayList<HtmlElement> childElements;
     private String content;
 
-    public HtmlElement() {
+    public HtmlElement(String tag) {
+        super(tag);
     }
 
-    public HtmlElement(String tag, HashMap<String, String> attributes) {
-        this.tag = tag;
-        this.attributes = attributes;
+    public HtmlElement(Tag tag, @Nullable String baseUri, Attributes attributes) {
+        super(tag, baseUri, attributes);
     }
+
+    public HtmlElement(Tag tag, String baseUri) {
+        super(tag, baseUri);
+    }
+
+//    public HtmlElement() {
+//    }
+//
+//    public HtmlElement(String tag, HashMap<String, String> attributes) {
+//        this.tag = tag;
+//        this.attributes = attributes;
+//    }
 
     public HtmlElement getChildByXPath(String s) {
         return null;
@@ -67,7 +81,7 @@ public class HtmlElement {
     }
 
     @Override
-    public String toString() {
+    public @NotNull String toString() {
         return content;
     }
 }
