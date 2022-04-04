@@ -1,6 +1,7 @@
 package scraper.templatescraper;
 
 import scraper.Scraper;
+import scraper.exceptions.ScraperNotInitializedException;
 
 import java.io.File;
 
@@ -29,7 +30,13 @@ public abstract class TemplateScraper {
     public void setSourceAsFile(File file){
         setSource(file);
     }
-    public Scraper getScraper(){
+    public Scraper getScraper() throws ScraperNotInitializedException {
+        if (scraper == null){
+            throw new ScraperNotInitializedException("Scraper has not been initialized, please set source");
+        }
         return scraper;
+    }
+    public static TemplateScraper BuildCustomTemplate(TemplateScraper template){
+        return template;
     }
 }
