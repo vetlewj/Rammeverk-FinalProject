@@ -34,7 +34,7 @@ public class Scraper {
      * {@link #buildScraperWithString(String) buildScraperWithString} methods.
      *
      * @param source Source for the Scraper to use, either a String to Scraper or a URL for a website to scrape
-     * @param sourceType Enum type of source for the scraper to differantiate between String and URL
+     * @param sourceType Enum type of source for the scraper to differentiate between String and URL
      */
     private Scraper(String source, SourceType sourceType) {
         if (sourceType == SourceType.STRING) {
@@ -52,7 +52,7 @@ public class Scraper {
 
     /**
      * Private constructor to instantiate a new Scraper object with a File. Method is private as Scraper objects are
-     * intended to be instatiated with a factory pattern using
+     * intended to be instantiated with a factory pattern using
      * {@link #buildScraperWithHtmlFile(File) BuildScraperWithFile} method.
      *
      * @param file file for the Scraper to use as Source for the content
@@ -89,7 +89,7 @@ public class Scraper {
      * A method for creating a Scraper object with a URL using a builder pattern.
      *
      * @param url URL for the website to use the Scraper object on
-     * @return Scraper Object built with the sepcified url
+     * @return Scraper Object built with the specified url
      */
     public static Scraper buildScraperWithURL(String url) {
         return new Scraper(url, SourceType.URL);
@@ -117,7 +117,7 @@ public class Scraper {
     }
 
     /**
-     * Returns the conent of the Scraper in raw format.
+     * Returns the content of the Scraper in raw format.
      *
      * @return Raw output of HTML string, file or url
      */
@@ -131,8 +131,8 @@ public class Scraper {
 
     /** Reads a String and parses the content ot Document object.
      *
-     * @param source Soruce String to parse
-     * @return Document object iwht parsed content
+     * @param source Source String to parse
+     * @return Document object with parsed content
      */
     private Document StringToHtmlPage(String source) {
         return Jsoup.parse(source);
