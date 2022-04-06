@@ -12,4 +12,19 @@ public abstract class ProductTemplate extends TemplateScraper {
         return 0;
     }
 
+    public String getDescription() {
+        return null;
+    }
+
+    public String getImage() {
+        return null;
+    }
+
+    public String getManufacturer() {
+        return null;
+    }
+
+    public String getCategory() {
+        return null;
+    }
 }
