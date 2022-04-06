@@ -21,4 +21,6 @@ public abstract class ArticleTemplate extends TemplateScraper {
     public abstract LocalDateTime getDateTimeLastUpdated();
 
     public abstract File articleToJson();
+    public abstract void articleToJsonFile(String fileName);
+
 }

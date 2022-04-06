@@ -60,4 +60,9 @@ public class SnlArticleTemplate extends ArticleTemplate {
     public File articleToJson() {
         return null;
     }
+
+    @Override
+    public void articleToJsonFile(String fileName) {
+        
+    }
 }
