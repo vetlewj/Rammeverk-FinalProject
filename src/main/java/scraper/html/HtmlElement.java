@@ -38,9 +38,9 @@ public class HtmlElement{
     }
 
     /**
-     * Creates a new HtmlElement and sets the tagname and attributes.
+     * Creates a new HtmlElement and sets the tag-name and attributes.
      *
-     * @param tagName Tagname of the new HtmlElement.
+     * @param tagName Tag-name of the new HtmlElement.
      * @param attributes Attributes of the new HtmlElement.
      */
     public HtmlElement(String tagName, HashMap<String, String> attributes) {
@@ -61,7 +61,7 @@ public class HtmlElement{
     }
 
     /**
-     * Finds a childelement from a given Xpath
+     * Finds a child-element from a given Xpath
      *
      * @param XPathString Xpath of the HtmlElement to find.
      * @return HtmlElement found.
@@ -80,7 +80,7 @@ public class HtmlElement{
     }
 
     /**
-     * Set Tagname of the HtmlElement.
+     * Set Tag-name of the HtmlElement.
      *
      * @param tagName Name of the tag.
      */
@@ -129,7 +129,7 @@ public class HtmlElement{
      *
      * @return text content of the HtmlElement
      */
-    public String getContentOfCurrentElement() {
+    public String getStringContentOfCurrentElement() {
         return content;
     }
 
@@ -142,10 +142,23 @@ public class HtmlElement{
         this.content = content;
     }
 
+    /**
+     * Gets the String content of current element and all child elements.
+     *
+     * @return String content of current element and all child elements.
+     */
+    public String getStringContentOfCurrentElementAndChildren() {
+        StringBuilder sb = new StringBuilder();
+        for (HtmlElement element : childElements) {
+            sb.append(element.getStringContentOfCurrentElementAndChildren());
+        }
+        return sb.toString();
+    }
+
 
 
     @Override
     public String toString() {
-        return content.toString();
+        return content;
     }
 }
