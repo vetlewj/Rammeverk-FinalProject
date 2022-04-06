@@ -36,6 +36,12 @@ public abstract class TemplateScraper {
         setSource(file);
     }
 
+    /**
+     *  Gets Scraper object if Scraper object has been initialized
+     *
+     * @return Scraper object, returns null if Scraper object has not been initialized
+     * @throws ScraperNotInitializedException if Scraper object has not been initialized.
+     */
     public Scraper getScraper() throws ScraperNotInitializedException {
         if (scraper == null) {
             throw new ScraperNotInitializedException("Scraper has not been initialized, please set source");
