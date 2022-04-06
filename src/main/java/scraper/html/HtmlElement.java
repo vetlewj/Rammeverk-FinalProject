@@ -1,84 +1,151 @@
 package scraper.html;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
-import org.jsoup.parser.Tag;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /** Represents a HTML Tag.
  * @author Vetle Jahr
  * @version 1.0
  */
 public class HtmlElement{
+    /**
+     * Internal Jsoup Element
+     */
     private Element _jsoupInternalElement;
-
-    private String tag;
+    /**
+     * Name of the tag
+     */
+    private String tagName;
+    /**
+     * HtmlElement's attributes
+     */
     private HashMap<String, String> attributes;
     /**
      * Represents the child HTML elements. Only contains the direct children.
      */
     private ArrayList<HtmlElement> childElements;
+    /**
+     * String representation of the content in the tag.
+     */
     private String content;
 
+    /**
+     * Creates a new HtmlElement with no properties set.
+     */
     public HtmlElement() {
     }
 
-    public HtmlElement(String tag, HashMap<String, String> attributes) {
-        this.tag = tag;
+    /**
+     * Creates a new HtmlElement and sets the tagname and attributes.
+     *
+     * @param tagName Tagname of the new HtmlElement.
+     * @param attributes Attributes of the new HtmlElement.
+     */
+    public HtmlElement(String tagName, HashMap<String, String> attributes) {
+        this.tagName = tagName;
         this.attributes = attributes;
     }
 
+    /**
+     * Creates a new HtmlElement from a JSoup Element.
+     * @param element JSoup Element to create HtmlElement from.
+     * @return HtmlElement created from JSoup Element.
+     */
     public static HtmlElement ElementToHtmlElement(Element element) {
         HtmlElement htmlElement = new HtmlElement();
-        htmlElement.tag = element.tagName();
+        htmlElement.tagName = element.tagName();
         htmlElement.attributes = (HashMap<String, String>) element.attributes().dataset();
         return htmlElement;
     }
 
-    public HtmlElement getChildByXPath(String s) {
+    /**
+     * Finds a childelement from a given Xpath
+     *
+     * @param XPathString Xpath of the HtmlElement to find.
+     * @return HtmlElement found.
+     */
+    public HtmlElement getChildByXPath(String XPathString) {
         return null;
     }
 
-    public String getTag() {
-        return tag;
+    /**
+     * Gets the Name of the tag of the HtmlElement.
+     *
+     * @return Name of HtmlElement.
+     */
+    public String getTagName() {
+        return tagName;
     }
 
-    public void setTag(String tag) {
-        this.tag = tag;
+    /**
+     * Set Tagname of the HtmlElement.
+     *
+     * @param tagName Name of the tag.
+     */
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
     }
 
+    /**
+     * Get the attributes of the HtmlElement.
+     *
+     * @return Attributes of the HtmlElement.
+     */
     public HashMap<String, String> getAttributes() {
         return attributes;
     }
 
+    /**
+     * Set attributes of the HtmlElement.
+     *
+     * @param attributes HashMap of attributes to set for HtmlElement.
+     */
     public void setAttributes(HashMap<String, String> attributes) {
         this.attributes = attributes;
     }
 
+    /**
+     * Get the child elements of the HtmlElement.
+     *
+     * @return ArrayList of child elements.
+     */
     public ArrayList<HtmlElement> getChildElements() {
         return childElements;
     }
 
+    /**
+     * Set ChildElements of HtmlElement
+     *
+     * @param childElements ArrayList of child elements to set.
+     */
     public void setChildElements(ArrayList<HtmlElement> childElements) {
         this.childElements = childElements;
     }
 
-    public String getContent() {
+    /**
+     * Get text Content of the HtmlElement.
+     *
+     * @return text content of the HtmlElement
+     */
+    public String getContentOfCurrentElement() {
         return content;
     }
 
+    /**
+     * Set the content of the HtmlElement.
+     *
+     * @param content Content of the HtmlElement to set.
+     */
     public void setContent(String content) {
         this.content = content;
     }
 
+
+
     @Override
     public String toString() {
-        return content;
+        return content.toString();
     }
 }
