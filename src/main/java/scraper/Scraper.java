@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
+import scraper.templatescraper.TemplateScraper;
 
 import java.io.File;
 import java.io.IOException;

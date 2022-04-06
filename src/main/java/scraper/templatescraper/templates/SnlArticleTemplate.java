@@ -55,14 +55,4 @@ public class SnlArticleTemplate extends ArticleTemplate {
     public LocalDateTime getDateTimeLastUpdated() {
         return null;
     }
-
-    @Override
-    public File articleToJson() {
-        return null;
-    }
-
-    @Override
-    public void articleToJsonFile(String fileName) {
-        
-    }
 }
