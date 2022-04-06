@@ -15,7 +15,9 @@ import java.util.List;
  * @author Vetle Jahr
  * @version 1.0
  */
-public class HtmlElement extends Element{
+public class HtmlElement{
+    private Element _jsoupInternalElement;
+
     private String tag;
     private HashMap<String, String> attributes;
     /**
@@ -24,25 +26,20 @@ public class HtmlElement extends Element{
     private ArrayList<HtmlElement> childElements;
     private String content;
 
-    public HtmlElement(String tag) {
-        super(tag);
+    public HtmlElement() {
     }
 
-    public HtmlElement(Tag tag, @Nullable String baseUri, Attributes attributes) {
-        super(tag, baseUri, attributes);
+    public HtmlElement(String tag, HashMap<String, String> attributes) {
+        this.tag = tag;
+        this.attributes = attributes;
     }
 
-    public HtmlElement(Tag tag, String baseUri) {
-        super(tag, baseUri);
+    public static HtmlElement ElementToHtmlElement(Element element) {
+        HtmlElement htmlElement = new HtmlElement();
+        htmlElement.tag = element.tagName();
+        htmlElement.attributes = (HashMap<String, String>) element.attributes().dataset();
+        return htmlElement;
     }
-
-//    public HtmlElement() {
-//    }
-//
-//    public HtmlElement(String tag, HashMap<String, String> attributes) {
-//        this.tag = tag;
-//        this.attributes = attributes;
-//    }
 
     public HtmlElement getChildByXPath(String s) {
         return null;
@@ -81,7 +78,7 @@ public class HtmlElement extends Element{
     }
 
     @Override
-    public @NotNull String toString() {
+    public String toString() {
         return content;
     }
 }

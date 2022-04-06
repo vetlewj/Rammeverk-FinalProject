@@ -3,51 +3,33 @@ package scraper.html;
 import org.jetbrains.annotations.Nullable;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import javax.swing.event.DocumentEvent;
 
-public class HtmlDocument extends Document{
-    HtmlElement head;
-    HtmlElement body;
-    String title;
+public class HtmlDocument {
 
-    /**
-     * Create a new, empty Document.
-     *
-     * @param baseUri base URI of document
-     * @see Jsoup#parse
-     * @see #createShell
-     */
-    public HtmlDocument(@Nullable String baseUri) {
-        super(baseUri);
-    }
+    private Document _jsoupInternalDocument;
 
+    private HtmlElement head;
+    private HtmlElement body;
+    private String title;
 
-    public static HtmlDocument documentToHtmlDocument(Document document){
-        return HtmlDocumentParser.documentToHtmlDocument(document);
+    public HtmlDocument(Document document) {
+        this._jsoupInternalDocument = document;
+        this.head = HtmlElement.ElementToHtmlElement(_jsoupInternalDocument.head());
+        this.body = HtmlElement.ElementToHtmlElement(_jsoupInternalDocument.body());
     }
 
     public HtmlElement getHead() {
         return head;
     }
 
-    public void setHead(HtmlElement head) {
-        this.head = head;
-    }
-
     public HtmlElement getBody() {
         return body;
     }
 
-    public void setBody(HtmlElement body) {
-        this.body = body;
-    }
-
     public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+        return this._jsoupInternalDocument.title();
     }
 }

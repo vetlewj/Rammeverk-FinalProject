@@ -2,7 +2,11 @@ package scraper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
+import scraper.templatescraper.TemplateScraper;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,8 +21,8 @@ import java.util.ArrayList;
  */
 public class Scraper {
     private enum SourceType {URL, STRING}
-
-    private Document content;
+    private Document _jsoupInternalDocument;
+    private HtmlDocument content;
 
     private Scraper() {
     }
@@ -34,10 +38,10 @@ public class Scraper {
      */
     private Scraper(String source, SourceType sourceType) {
         if (sourceType == SourceType.STRING) {
-            this.content = StringToHtmlPage(source);
+            this._jsoupInternalDocument = StringToHtmlPage(source);
         } else if (sourceType == SourceType.URL) {
             try (InputStream in = new URL(source).openStream()) {
-                this.content = StringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
+                this._jsoupInternalDocument = StringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -52,7 +56,7 @@ public class Scraper {
      * @param file file for the Scraper to use as Source for the content
      */
     private Scraper(File file) {
-        this.content = FileToHtmlPage(file);
+        this._jsoupInternalDocument = FileToHtmlPage(file);
         // TODO: Create exception if file is not found or if file is not HTML
     }
 
@@ -111,6 +115,10 @@ public class Scraper {
         return this.content.toString();
     }
 
+    public HtmlDocument getContentDocumentObject(){
+        return this.content;
+    }
+
     /** Reads a String and parses the content ot Document object.
      *
      * @param source Soruce String to parse
@@ -121,7 +129,12 @@ public class Scraper {
     }
 
     public ArrayList<HtmlElement> getElementsFromTag(String htmlTag) {
-        return null;
+        Elements elements = _jsoupInternalDocument.getElementsByTag(htmlTag);
+        ArrayList<HtmlElement> htmlElements = new ArrayList<>();
+        for (Element el : elements){
+            htmlElements.add(HtmlElement.ElementToHtmlElement(el));
+        }
+        return htmlElements;
     }
 
     public ArrayList<HtmlElement> getElementsFromClass(String className) {
