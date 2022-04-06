@@ -6,7 +6,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
-import scraper.templatescraper.TemplateScraper;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,9 +38,11 @@ public class Scraper {
     private Scraper(String source, SourceType sourceType) {
         if (sourceType == SourceType.STRING) {
             this._jsoupInternalDocument = StringToHtmlPage(source);
+            setContent();
         } else if (sourceType == SourceType.URL) {
             try (InputStream in = new URL(source).openStream()) {
                 this._jsoupInternalDocument = StringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
+                setContent();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -57,7 +58,15 @@ public class Scraper {
      */
     private Scraper(File file) {
         this._jsoupInternalDocument = FileToHtmlPage(file);
+        setContent();
         // TODO: Create exception if file is not found or if file is not HTML
+    }
+
+    /**
+     * Sets the content of the Scraper object.
+     */
+    private void setContent() {
+        this.content =  new HtmlDocument(this._jsoupInternalDocument);
     }
 
     /**
@@ -138,7 +147,12 @@ public class Scraper {
     }
 
     public ArrayList<HtmlElement> getElementsFromClass(String className) {
-        return null;
+        Elements elements = _jsoupInternalDocument.getElementsByClass(className);
+        ArrayList<HtmlElement> htmlElements = new ArrayList<>();
+        for (Element el : elements){
+            htmlElements.add(HtmlElement.ElementToHtmlElement(el));
+        }
+        return htmlElements;
     }
 
     public ArrayList<HtmlElement> getElementsByXpath(String xPath) {
