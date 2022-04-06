@@ -5,7 +5,7 @@ import org.jsoup.nodes.Element;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/** Represents a HTML Tag.
+/** Represents an HTML Tag.
  *  A wrapper for the Jsoup Element class.
  *
  * @author Vetle Jahr
@@ -15,7 +15,7 @@ public class HtmlElement{
     /**
      * Internal Jsoup Element
      */
-    private Element _jsoupInternalElement;
+    private Element jsoupInternalElement;
     /**
      * Name of the tag
      */
