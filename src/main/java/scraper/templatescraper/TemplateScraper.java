@@ -7,6 +7,7 @@ import java.io.File;
 
 public abstract class TemplateScraper {
     private enum SourceType {URL, FILE, STRING}
+    public enum TemplateSourceType {URL, FILE, STRING}
     private Scraper scraper;
 
     private void setSource(String source, SourceType sourceType) {
@@ -36,7 +37,13 @@ public abstract class TemplateScraper {
         }
         return scraper;
     }
-    public static TemplateScraper BuildCustomTemplate(TemplateScraper template){
-        return template;
+
+    /**
+     * Method is used to get the JSON representation of the object. Should be overridden by the child class.
+     *
+     * @return JSON representation of the object
+     */
+    public String toJson(){
+        return getClass().toString();
     }
 }
