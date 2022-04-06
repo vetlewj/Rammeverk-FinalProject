@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /** Represents a HTML Tag.
+ *  A wrapper for the Jsoup Element class.
+ *
  * @author Vetle Jahr
  * @version 1.0
  */

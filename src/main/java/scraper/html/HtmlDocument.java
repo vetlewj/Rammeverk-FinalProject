@@ -1,12 +1,15 @@
 package scraper.html;
 
-import org.jetbrains.annotations.Nullable;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 
-import javax.swing.event.DocumentEvent;
 
+/**
+ * Represents an HTML document.
+ * A wrapper for the JSoup Document class.
+ *
+ * @author Vetle Jahr
+ * @version 1.0
+ */
 public class HtmlDocument {
 
     private Document _jsoupInternalDocument;
@@ -30,6 +33,7 @@ public class HtmlDocument {
     }
 
     public String getTitle() {
-        return this._jsoupInternalDocument.title();
+        title = _jsoupInternalDocument.title();
+        return title;
     }
 }
