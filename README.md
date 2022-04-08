@@ -84,3 +84,53 @@ class PowerProductTemplate extends ProductTemplate {
     }
 }
 ```
+
+
+## XPath
+XPath stands for XML Path Language [(MDN web docs, 2022)](https://developer.mozilla.org/en-US/docs/Web/XPath). It is used as a way to select elements in an XML document. XML and HTML are similar 
+and XPath can also be used to select elements in HTML. XPath works, as the name may suggest, by finding elements through
+a path. 
+
+Given the following HTML document:
+
+```html
+<html lang="en">
+<body>
+<main>
+    <h1>My Heading1</h1>
+    <div id="my-div">
+        <span>Aleksandr Alekhin</span>
+        <p>My Paragraph</p>
+    </div>
+    <p>My paragraph.</p>
+</main>
+<aside>
+    <h2>My Heading</h2>
+    <ul>
+        <li>Magnus Carlsen</li>
+        <li>Hikaru Nakamura</li>
+        <li>Mikhail Tal</li>
+        <li>Mikhail Botvinnik</li>        
+    </ul>
+</aside>
+</body>
+</html>
+```
+
+Suppose you want to get the third item in the list. The Xpath to this item is: `//ul/li[3]`. 
+
+To get the text inside the span element, the Xpath to this element is: `//div[@id="my-div"]/span`.
+
+To use these XPath in a scraper, you can use the getElementFromXpath method: 
+
+```java 
+// Create a scraper
+Scraper scraper = Scraper.buildScraperWithFile(pathToFile);
+
+// get the HtmlElement object for the third item in the list
+HtmlElement thirdElementInList = scraper.getElementFromXpath("//ul/li[3]");
+
+// get the text inside the span element
+String textInsideSpan = scraper.getElementFromXpath("//div[@id='my-div']/span").toString();
+```
+
