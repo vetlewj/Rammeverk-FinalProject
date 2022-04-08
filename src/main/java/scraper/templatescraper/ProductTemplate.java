@@ -27,4 +27,8 @@ public abstract class ProductTemplate extends TemplateScraper {
     public String getCategory() {
         return null;
     }
+
+    public static ProductTemplate buildTemplate(ProductTemplate template) {
+        return template;
+    }
 }
