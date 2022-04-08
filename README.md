@@ -2,15 +2,10 @@
 The framework is divided into two layers; Scraper, a regular web scraper, and TemplateScraper, a set of classes and functions to create your own custom templates for scraping websites. 
 
 ## Setup
-The framework can be downloaded from [Github](https://github.com/vetlewj/Rammeverk-FinalProject). Click on the green
+The framework can be downloaded from [GitHub](https://github.com/vetlewj/Rammeverk-FinalProject). Click on the green
 button that says Code and you will get the option to clone the project in various ways. If you are not familiar with 
 git, the easiest solution is to Download as ZIP. After downloading the ZIP, the next is to unpack the project in a 
-designated location. Then you can open the folder with Visual Studio Code, IntelliJ or another editor. 
-
-The classes and methods are currently not implemented yet as it is just the code primitives. Therefore nothing will 
-happen if you try to use this framework yet. 
-
-However, the solution can be compiled and built using gradle. 
+designated location. Then you can open the folder with Visual Studio Code, IntelliJ or another editor.
 
 ### Setup in IntelliJ with JAR file
 
