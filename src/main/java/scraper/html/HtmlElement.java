@@ -4,6 +4,7 @@ import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /** Represents an HTML Tag.
  *  A wrapper for the Jsoup Element class.
@@ -23,7 +24,7 @@ public class HtmlElement{
     /**
      * HtmlElement's attributes
      */
-    private HashMap<String, String> attributes;
+    private Map<String, String> attributes;
     /**
      * Represents the child HTML elements. Only contains the direct children.
      */
@@ -58,7 +59,13 @@ public class HtmlElement{
     public static HtmlElement ElementToHtmlElement(Element element) {
         HtmlElement htmlElement = new HtmlElement();
         htmlElement.tagName = element.tagName();
-        htmlElement.attributes = (HashMap<String, String>) element.attributes().dataset();
+        htmlElement.attributes = element.attributes().dataset();
+        htmlElement.content = element.text();
+
+        ArrayList<HtmlElement> childElements = new ArrayList<>();
+        for (Element childElement : element.children()) {
+            childElements.add(ElementToHtmlElement(childElement));
+        }
         return htmlElement;
     }
 
@@ -95,7 +102,7 @@ public class HtmlElement{
      *
      * @return Attributes of the HtmlElement.
      */
-    public HashMap<String, String> getAttributes() {
+    public Map<String, String> getAttributes() {
         return attributes;
     }
 
@@ -104,7 +111,7 @@ public class HtmlElement{
      *
      * @param attributes HashMap of attributes to set for HtmlElement.
      */
-    public void setAttributes(HashMap<String, String> attributes) {
+    public void setAttributes(Map<String, String> attributes) {
         this.attributes = attributes;
     }
 
@@ -162,5 +169,9 @@ public class HtmlElement{
     @Override
     public String toString() {
         return content;
+    }
+
+    public String getAttribute(String attribute) {
+        return attributes.get(attribute);
     }
 }
