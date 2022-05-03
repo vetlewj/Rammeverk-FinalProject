@@ -36,4 +36,9 @@ public class HtmlDocument {
         title = jsoupInternalDocument.title();
         return title;
     }
+
+    @Override
+    public String toString() {
+        return jsoupInternalDocument.toString();
+    }
 }
