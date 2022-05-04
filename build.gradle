@@ -8,6 +8,9 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+test{
+    useJUnitPlatform()
+}
 
 dependencies {
     implementation 'org.jsoup:jsoup:1.14.3'
