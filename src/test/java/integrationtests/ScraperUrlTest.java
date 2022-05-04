@@ -26,5 +26,10 @@ public class ScraperUrlTest {
         assertSame(scraperFromUrl.getClass(), Scraper.class);
     }
 
-
+    // Scenario 1: Set up a webscraper for https://snl.no/Michelangelo and retrieve all h1 elements
+    @Test
+    public void testGetAllH1Elements() {
+        scraper.getElementsFromTag("h1");
+        Assertions.assertEquals("Michelangelo", scraper.getElementsFromTag("h1").get(0).toString());
+    }
 }
