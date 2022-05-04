@@ -27,6 +27,7 @@ class ScraperTest {
                 </body>
                 </html>
                 """);
+        // removes all the whitespace and newlines [\r\n\t\f\v ]
         assertEquals(("""
                 <html>
                 <head></head>
@@ -34,7 +35,8 @@ class ScraperTest {
                 <h1>Hello World</h1>
                 </body>
                 </html>
-                """).trim(), scraper.getRawContent().trim());
+                """).replaceAll("\\s+", ""),
+                scraper.getRawContent().replaceAll("\\s+", ""));
     }
 
     @Test
