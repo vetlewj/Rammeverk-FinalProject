@@ -1,4 +1,4 @@
-package unit.scraper;
+package unittests.scraper;
 
 import org.junit.jupiter.api.Test;
 import scraper.Scraper;
