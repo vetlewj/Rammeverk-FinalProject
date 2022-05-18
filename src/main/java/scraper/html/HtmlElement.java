@@ -28,7 +28,7 @@ public class HtmlElement{
     /**
      * Represents the child HTML elements. Only contains the direct children.
      */
-    private ArrayList<HtmlElement> childElements;
+    private ArrayList<HtmlElement> childElements = new ArrayList<>();
     /**
      * String representation of the content in the tag.
      */
@@ -61,10 +61,10 @@ public class HtmlElement{
         htmlElement.tagName = element.tagName();
         htmlElement.attributes = element.attributes().dataset();
         htmlElement.content = element.text();
+        htmlElement.jsoupInternalElement = element;
 
-        ArrayList<HtmlElement> childElements = new ArrayList<>();
         for (Element childElement : element.children()) {
-            childElements.add(ElementToHtmlElement(childElement));
+            htmlElement.childElements.add(ElementToHtmlElement(childElement));
         }
         return htmlElement;
     }
