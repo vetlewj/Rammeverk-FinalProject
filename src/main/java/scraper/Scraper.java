@@ -164,11 +164,22 @@ public class Scraper {
         return null;
     }
 
+    /**
+     * Gets an HtmlElement on the site based on the ID attribute.
+     *
+     * @param id id attribute of the HtmlElement
+     * @return Element found based on id attribute of the Html tag.
+     */
     public HtmlElement getElementById(String id) {
-        return null;
+        return HtmlElement.ElementToHtmlElement(jsoupInternalDocument.getElementById(id));
     }
 
+    /**
+     * The title of the site.
+     *
+     * @return the title of the site as a string.
+     */
     public String getTitle() {
-        return null;
+        return jsoupInternalDocument.title();
     }
 }
