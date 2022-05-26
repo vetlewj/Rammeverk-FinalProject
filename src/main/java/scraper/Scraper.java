@@ -125,6 +125,11 @@ public class Scraper {
         return this.content.toString();
     }
 
+    /**
+     * Get HtmlDocument object of the scraper
+     *
+     * @return HtmlDocument object of content.
+     */
     public HtmlDocument getContentDocumentObject(){
         return this.content;
     }
@@ -138,6 +143,12 @@ public class Scraper {
         return Jsoup.parse(source);
     }
 
+    /**
+     * Get list of HtmlElements from site based on tag name.
+     *
+     * @param htmlTag name of the html tag to retrieve.
+     * @return ArrayList of HtmlElements from requested tag.
+     */
     public ArrayList<HtmlElement> getElementsFromTag(String htmlTag) {
         Elements elements = jsoupInternalDocument.getElementsByTag(htmlTag);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
@@ -147,6 +158,12 @@ public class Scraper {
         return htmlElements;
     }
 
+    /**
+     * Gets a list of HtmlElements from the site based on the value of the class attribute of the Html tag.
+     *
+     * @param className Value of the class attribute of the html tags to retrieve.
+     * @return ArrayList of HtmlElements with the requested class attribute.
+     */
     public ArrayList<HtmlElement> getElementsFromClass(String className) {
         Elements elements = jsoupInternalDocument.getElementsByClass(className);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
