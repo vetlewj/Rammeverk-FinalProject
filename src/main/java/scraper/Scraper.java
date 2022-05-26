@@ -134,7 +134,7 @@ public class Scraper {
         return this.content;
     }
 
-    /** Reads a String and parses the content ot Document object.
+    /** Reads a String and parses the content of HtmlDocument object.
      *
      * @param source Source String to parse
      * @return Document object with parsed content
