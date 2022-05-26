@@ -57,6 +57,9 @@ public class HtmlElement{
      * @return HtmlElement created from JSoup Element.
      */
     public static HtmlElement ElementToHtmlElement(Element element) {
+        if (element == null){
+            return null;
+        }
         HtmlElement htmlElement = new HtmlElement();
         htmlElement.tagName = element.tagName();
         htmlElement.attributes = element.attributes().dataset();
