@@ -62,6 +62,10 @@ class ScraperTest {
 
     @Test
     void getElementByXpath() {
+        // TODO: Replace with a real test
+        File testFile = new File("src/test/resources/snlMichelangelo.html");
+        Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
+        scraper.getElementByXpath("//div[@class=\"h2 bold my-spacer-none\"]");
     }
 
     @Test
