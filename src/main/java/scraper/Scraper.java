@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 /**
  * @author Vetle Jahr
@@ -178,6 +179,70 @@ public class Scraper {
     }
 
     public HtmlElement getElementByXpath(String xPath) {
+        HtmlElement currentElement = null;
+        for(int i = 0; i < xPath.length(); i++){
+            char c = xPath.charAt(i);
+            boolean finished = false;
+            while (!finished) {
+                if (Pattern.matches("[@\\[\\]\\/]", String.valueOf(c))){
+                    if (c == '/') {
+                        if (xPath.charAt(i + 1) == '/') {
+                            int j = i + 1;
+                            StringBuilder tagName = new StringBuilder();
+                            while (Pattern.matches("[a-zA-Z-]", String.valueOf(xPath.charAt(j)))) {
+                                tagName.append(xPath.charAt(j));
+                                j++;
+                            }
+                            currentElement = getElementsFromTag(String.valueOf(tagName)).get(0);
+                            i = j;
+                            finished = true;
+                        }
+                        if (xPath.charAt(i+1) == '@'){
+                            int j = i + 1;
+                            StringBuilder className = new StringBuilder();
+                            while (Pattern.matches("[a-zA-Z-]", String.valueOf(xPath.charAt(j)))) {
+                                className.append(xPath.charAt(j));
+                                j++;
+                            }
+                            if (currentElement != null){
+                                ArrayList<HtmlElement> currentElements = currentElement.getChildElements();
+                                for (HtmlElement el: currentElements){
+                                    // TODO: Fix
+                                    // Condition 'el.getAttribute("class").equals(className)' is always 'false'
+                                    if (el.getAttribute("class").equals(className)){
+                                        currentElement = el;
+                                    }
+                                }
+                            }
+                            i = j;
+                            finished = true;
+                        }
+                        else {
+                            int j = i + 1;
+                            StringBuilder tagName = new StringBuilder();
+                            while (Pattern.matches("[a-zA-Z-]", String.valueOf(xPath.charAt(j)))) {
+                                tagName.append(xPath.charAt(j));
+                                j++;
+                            }
+                            if (currentElement != null){
+                                ArrayList<HtmlElement> currElements = currentElement.getChildElements();
+                                for (HtmlElement el: currElements){
+                                    if(el.getTagName().equals(String.valueOf(tagName))){
+                                        currentElement = el;
+                                    }
+                                }
+                            }
+                            i = j;
+                            finished = true;
+                        }
+                    }
+                }
+                else{
+                    // TODO: logic if character is a non-special character, treat as tagname
+                }
+
+            }
+        }
         return null;
     }
 
