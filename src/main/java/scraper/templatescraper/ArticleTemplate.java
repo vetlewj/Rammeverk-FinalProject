@@ -11,14 +11,20 @@ import java.util.HashMap;
 
 public abstract class ArticleTemplate extends TemplateScraper {
     public abstract String getHeader();
+
     public abstract String getIntroduction();
+
     public abstract ArrayList<HtmlElement> getParagraphs();
+
     public abstract HashMap<String, String> getTextContentWithHeaders();
+
     public abstract ArrayList<String> getWriters();
+
     public abstract LocalDate getDatePublished();
+
     public abstract LocalDateTime getDateTimePublished();
+
     public abstract LocalDate getDateLastUpdated();
+
     public abstract LocalDateTime getDateTimeLastUpdated();
-
-
 }
