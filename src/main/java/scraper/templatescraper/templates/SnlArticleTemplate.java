@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SnlArticleTemplate extends ArticleTemplate {
+    // TODO: Missing implementation
     @Override
     public String getHeader() {
         return null;

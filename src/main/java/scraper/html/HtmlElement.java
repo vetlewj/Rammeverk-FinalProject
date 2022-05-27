@@ -62,7 +62,7 @@ public class HtmlElement{
         }
         HtmlElement htmlElement = new HtmlElement();
         htmlElement.tagName = element.tagName();
-        htmlElement.attributes = element.attributes().dataset();
+        htmlElement.attributes = element.attributes().dataset(); //TODO: Fix setting attributes
         htmlElement.content = element.text();
         htmlElement.jsoupInternalElement = element;
 
@@ -168,10 +168,15 @@ public class HtmlElement{
     }
 
 
-
+    // TODO: Update toString method to <tagname attribute1=x>content<childelements></tagname>
     @Override
     public String toString() {
-        return content;
+        return "HtmlElement{" +
+               ", tagName='" + tagName + '\'' +
+               ", attributes=" + attributes +
+               ", childElements=" + childElements +
+               ", content='" + content + '\'' +
+               '}';
     }
 
     public String getAttribute(String attribute) {
