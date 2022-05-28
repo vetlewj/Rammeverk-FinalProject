@@ -10,7 +10,6 @@ public class XpathParser {
         // How to .split() and keep the delimiters are based on this article:
         // https://www.baeldung.com/java-split-string-keep-delimiters
         String[] xPathSplit = xPath.split("(?=[@\\[\\]\\/=])|(?<=[@\\[\\]\\/=])");
-        System.out.println(Arrays.toString(xPathSplit));
         String ancestor = "/";
         String attribute = "@";
         StringBuilder CSSSelectorString = new StringBuilder();

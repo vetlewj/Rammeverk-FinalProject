@@ -2,7 +2,9 @@ package unittests.scraper;
 
 import org.junit.jupiter.api.Test;
 import scraper.Scraper;
+import scraper.exceptions.InvalidXPathException;
 import scraper.html.HtmlDocument;
+import scraper.html.HtmlElement;
 
 import java.io.File;
 
@@ -62,10 +64,15 @@ class ScraperTest {
 
     @Test
     void getElementByXpath() {
-        // TODO: Replace with a real test
         File testFile = new File("src/test/resources/snlMichelangelo.html");
         Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
-        scraper.getElementByXpath("//div[@class=\"h2 bold my-spacer-none\"]");
+        try {
+            HtmlElement element = scraper.getElementByXpath("//span[@class=\"page-title__heading-text\"]");
+            assertEquals("Michelangelo", element.getStringContentOfCurrentElement());
+        } catch (InvalidXPathException e) {
+            System.out.println("Invalid XPath");;
+        }
+
     }
 
     @Test
