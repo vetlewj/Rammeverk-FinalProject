@@ -4,8 +4,25 @@ import scraper.exceptions.InvalidXPathException;
 
 import java.util.Arrays;
 
+/**
+ * This class is used to parse an XPath expression and to return the string in a different format such as CSS selector.
+ * It currently supports the following XPath operators:
+ * Descendant: //
+ * Attribute: [@key=value]
+ * Parent: /
+ * Tagname: tagname
+ *
+ * @author Vetle Jahr
+ * @version 1.0
+ */
 public class XpathParser {
-    // Method that parses an xpath string into a string of CSS selector syntax
+    /**
+     * Converts a XPath expression to a CSS selector.
+     *
+     * @param xPath XPath expression to convert
+     * @return CSS selector expression as a string.
+     * @throws InvalidXPathException if the XPath expression is invalid or if the XPath expression is not supported.
+     */
     public static String parseXPathToCssSelector(String xPath) throws InvalidXPathException {
         // How to .split() and keep the delimiters are based on this article:
         // https://www.baeldung.com/java-split-string-keep-delimiters
