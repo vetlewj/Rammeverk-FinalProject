@@ -7,19 +7,14 @@ import org.jsoup.select.Elements;
 import scraper.exceptions.InvalidXPathException;
 import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
-import scraper.templatescraper.TemplateScraper;
-import scraper.xpathparser.XpathParser;
+import scraper.xpathparser.XPathParser;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
-import java.util.regex.Pattern;
 
 /**
  * @author Vetle Jahr
@@ -187,7 +182,7 @@ public class Scraper {
     }
 
     public HtmlElement getElementByXpath(String xPath) throws InvalidXPathException {
-        Elements elements = jsoupInternalDocument.select(XpathParser.parseXPathToCssSelector(xPath));
+        Elements elements = jsoupInternalDocument.select(XPathParser.convertXPathToCssSelector(xPath));
         return HtmlElement.ElementToHtmlElement(elements.first());
     }
 

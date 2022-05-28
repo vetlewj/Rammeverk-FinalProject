@@ -2,8 +2,6 @@ package scraper.xpathparser;
 
 import scraper.exceptions.InvalidXPathException;
 
-import java.util.Arrays;
-
 /**
  * This class is used to parse an XPath expression and to return the string in a different format such as CSS selector.
  * It currently supports the following XPath operators:
@@ -15,7 +13,7 @@ import java.util.Arrays;
  * @author Vetle Jahr
  * @version 1.0
  */
-public class XpathParser {
+public class XPathParser {
     /**
      * Converts a XPath expression to a CSS selector.
      *
@@ -23,18 +21,18 @@ public class XpathParser {
      * @return CSS selector expression as a string.
      * @throws InvalidXPathException if the XPath expression is invalid or if the XPath expression is not supported.
      */
-    public static String parseXPathToCssSelector(String xPath) throws InvalidXPathException {
+    public static String convertXPathToCssSelector(String xPath) throws InvalidXPathException {
         // How to .split() and keep the delimiters are based on this article:
         // https://www.baeldung.com/java-split-string-keep-delimiters
-        String[] xPathSplit = xPath.split("(?=[@\\[\\]\\/=])|(?<=[@\\[\\]\\/=])");
-        String ancestor = "/";
+        String[] xPathArray = xPath.split("(?=[@\\[\\]\\/=])|(?<=[@\\[\\]\\/=])");
+        String parent = "/";
         String attribute = "@";
         StringBuilder CSSSelectorString = new StringBuilder();
-        for (int i = 0; i < xPathSplit.length; i++) {
+        for (int i = 0; i < xPathArray.length; i++) {
             // if char at i is /
-            if (xPathSplit[i].equals(ancestor)) {
+            if (xPathArray[i].equals(parent)) {
                 // if char at i+1 is /
-                if (xPathSplit[i + 1].equals(ancestor)) {
+                if (xPathArray[i + 1].equals(parent)) {
                     // if // at start of string, do nothing but skip to next char
                     if (i == 0) {
                         i = i + 1;
@@ -48,12 +46,12 @@ public class XpathParser {
                 else {
                     CSSSelectorString.append(" > ");
                 }
-            } else if (xPathSplit[i].equals(attribute)) {
+            } else if (xPathArray[i].equals(attribute)) {
                 // attribute is similar for css selector and xpath, but css selector does not have the @ symbol
-
+                // therefore we refrain from adding the @ symbol to the css selector.
             } else {
                 // if the character does not need to be replaced, just add it to the string
-                CSSSelectorString.append(xPathSplit[i]);
+                CSSSelectorString.append(xPathArray[i]);
             }
         }
         return CSSSelectorString.toString();
