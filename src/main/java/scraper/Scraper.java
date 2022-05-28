@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
  */
 public class Scraper {
     private enum SourceType {URL, STRING}
+
     private Document jsoupInternalDocument;
     private HtmlDocument content;
 
@@ -39,7 +40,7 @@ public class Scraper {
      * {@link #buildScraperWithURL(String) buildScraperWithUrl} and
      * {@link #buildScraperWithString(String) buildScraperWithString} methods.
      *
-     * @param source Source for the Scraper to use, either a String to Scraper or a URL for a website to scrape
+     * @param source     Source for the Scraper to use, either a String to Scraper or a URL for a website to scrape
      * @param sourceType Enum type of source for the scraper to differentiate between String and URL
      */
     private Scraper(String source, SourceType sourceType) {
@@ -73,7 +74,7 @@ public class Scraper {
      * Sets the content of the Scraper object.
      */
     private void setContent() {
-        this.content =  new HtmlDocument(this.jsoupInternalDocument);
+        this.content = new HtmlDocument(this.jsoupInternalDocument);
     }
 
     /**
@@ -136,11 +137,12 @@ public class Scraper {
      *
      * @return HtmlDocument object of content.
      */
-    public HtmlDocument getContentDocumentObject(){
+    public HtmlDocument getContentDocumentObject() {
         return this.content;
     }
 
-    /** Reads a String and parses the content of HtmlDocument object.
+    /**
+     * Reads a String and parses the content of HtmlDocument object.
      *
      * @param source Source String to parse
      * @return Document object with parsed content
@@ -158,7 +160,7 @@ public class Scraper {
     public ArrayList<HtmlElement> getElementsFromTag(String htmlTag) {
         Elements elements = jsoupInternalDocument.getElementsByTag(htmlTag);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
-        for (Element el : elements){
+        for (Element el : elements) {
             htmlElements.add(HtmlElement.ElementToHtmlElement(el));
         }
         return htmlElements;
@@ -173,7 +175,7 @@ public class Scraper {
     public ArrayList<HtmlElement> getElementsFromClass(String className) {
         Elements elements = jsoupInternalDocument.getElementsByClass(className);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
-        for (Element el : elements){
+        for (Element el : elements) {
             htmlElements.add(HtmlElement.ElementToHtmlElement(el));
         }
         return htmlElements;
