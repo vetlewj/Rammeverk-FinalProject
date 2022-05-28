@@ -4,9 +4,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import scraper.exceptions.InvalidXPathException;
 import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
 import scraper.templatescraper.TemplateScraper;
+import scraper.xpathparser.XpathParser;
 
 import java.io.File;
 import java.io.IOException;
@@ -182,12 +184,9 @@ public class Scraper {
         return null;
     }
 
-    public HtmlElement getElementByXpath(String xPath) {
-        // How to .split() and keep the delimiters are based on this article:
-        // https://www.baeldung.com/java-split-string-keep-delimiters
-
-        System.out.println(Arrays.toString(xPath.split("(?=[@\\[\\]\\/=])|(?<=[@\\[\\]\\/=])")));
-        return null;
+    public HtmlElement getElementByXpath(String xPath) throws InvalidXPathException {
+        Elements elements = jsoupInternalDocument.select(XpathParser.parseXPathToCssSelector(xPath));
+        return HtmlElement.ElementToHtmlElement(elements.first());
     }
 
     /**
