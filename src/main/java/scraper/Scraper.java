@@ -190,7 +190,14 @@ public class Scraper {
         }
         return htmlElements;
     }
-    
+
+    /**
+     * Gets a HtmlElement object based on the specified XPath.
+     *
+     * @param xPath XPath to use to retrieve the HtmlElement object.
+     * @return HtmlElement object with the specified XPath.
+     * @throws InvalidXPathException if the specified XPath is invalid.
+     */
     public HtmlElement getElementByXpath(String xPath) throws InvalidXPathException {
         Elements elements = jsoupInternalDocument.select(XPathParser.convertXPathToCssSelector(xPath));
         return HtmlElement.ElementToHtmlElement(elements.first());
