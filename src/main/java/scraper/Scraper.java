@@ -204,6 +204,32 @@ public class Scraper {
     }
 
     /**
+     * Gets a HtmlElement object based on the specified CssSelector string.
+     *
+     * @param cssSelector String to define the path to the HtmlElement object using Css Selector syntax.
+     * @return HtmlElement object with the specified CssSelector.
+     */
+    public HtmlElement getElementByCssSelector(String cssSelector) {
+        Elements elements = jsoupInternalDocument.select(cssSelector);
+        return HtmlElement.ElementToHtmlElement(elements.first());
+    }
+
+    /**
+     * Gets a list of HtmlElement objects based on the specified CssSelector string.
+     *
+     * @param cssSelector String to define the path to the HtmlElement objects using Css Selector syntax.
+     * @return ArrayList of HtmlElement objects with the specified CssSelector.
+     */
+    public ArrayList<HtmlElement> getElementsByCssSelector(String cssSelector) {
+        Elements elements = jsoupInternalDocument.select(cssSelector);
+        ArrayList<HtmlElement> htmlElements = new ArrayList<>();
+        for (Element el : elements) {
+            htmlElements.add(HtmlElement.ElementToHtmlElement(el));
+        }
+        return htmlElements;
+    }
+
+    /**
      * Gets an HtmlElement on the site based on the ID attribute.
      *
      * @param id id attribute of the HtmlElement
