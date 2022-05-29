@@ -12,6 +12,7 @@ class HtmlElementTest {
 
     @Test
     void getAttribute() {
+        //TODO: Fix failing test. Attribute is not being found. 
         File testFile = new File("src/test/resources/snlMichelangelo.html");
         Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
 
