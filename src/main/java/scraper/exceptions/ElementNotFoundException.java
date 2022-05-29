@@ -8,6 +8,7 @@ public class ElementNotFoundException extends Exception {
     public ElementNotFoundException(String message) {
         super(message);
     }
+
     public ElementNotFoundException(String message, Object object) {
         super(message + " Element not found is: " + object);
     }

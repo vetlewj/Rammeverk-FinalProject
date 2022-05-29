@@ -6,13 +6,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/** Represents an HTML Tag.
- *  A wrapper for the Jsoup Element class.
+/**
+ * Represents an HTML Tag.
+ * A wrapper for the Jsoup Element class.
  *
  * @author Vetle Jahr
  * @version 1.0
  */
-public class HtmlElement{
+public class HtmlElement {
     /**
      * Internal Jsoup Element
      */
@@ -43,7 +44,7 @@ public class HtmlElement{
     /**
      * Creates a new HtmlElement and sets the tag-name and attributes.
      *
-     * @param tagName Tag-name of the new HtmlElement.
+     * @param tagName    Tag-name of the new HtmlElement.
      * @param attributes Attributes of the new HtmlElement.
      */
     public HtmlElement(String tagName, HashMap<String, String> attributes) {
@@ -53,11 +54,12 @@ public class HtmlElement{
 
     /**
      * Creates a new HtmlElement from a JSoup Element.
+     *
      * @param element JSoup Element to create HtmlElement from.
      * @return HtmlElement created from JSoup Element.
      */
     public static HtmlElement ElementToHtmlElement(Element element) {
-        if (element == null){
+        if (element == null) {
             return null;
         }
         HtmlElement htmlElement = new HtmlElement();

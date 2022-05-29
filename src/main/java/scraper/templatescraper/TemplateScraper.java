@@ -37,7 +37,7 @@ public abstract class TemplateScraper {
     }
 
     /**
-     *  Gets Scraper object if Scraper object has been initialized
+     * Gets Scraper object if Scraper object has been initialized
      *
      * @return Scraper object, returns null if Scraper object has not been initialized
      * @throws ScraperNotInitializedException if Scraper object has not been initialized.
