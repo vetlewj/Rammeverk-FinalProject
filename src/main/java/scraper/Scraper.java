@@ -176,11 +176,21 @@ public class Scraper {
         return htmlElements;
     }
 
-    public ArrayList<HtmlElement> getElementsByXpath(String xPath) {
-        //TODO: Missing implementation
-        return null;
+    /**
+     * Gets a list of HtmlElements from the site base on the specified XPath.
+     *
+     * @param xPath XPath to retrieve elements from.
+     * @return ArrayList of HtmlElements from the XPath.
+     */
+    public ArrayList<HtmlElement> getElementsByXpath(String xPath) throws InvalidXPathException {
+        Elements elements = jsoupInternalDocument.select(XPathParser.convertXPathToCssSelector(xPath));
+        ArrayList<HtmlElement> htmlElements = new ArrayList<>();
+        for (Element el : elements) {
+            htmlElements.add(HtmlElement.ElementToHtmlElement(el));
+        }
+        return htmlElements;
     }
-
+    
     public HtmlElement getElementByXpath(String xPath) throws InvalidXPathException {
         Elements elements = jsoupInternalDocument.select(XPathParser.convertXPathToCssSelector(xPath));
         return HtmlElement.ElementToHtmlElement(elements.first());
