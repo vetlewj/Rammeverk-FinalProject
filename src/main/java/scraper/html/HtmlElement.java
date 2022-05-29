@@ -184,4 +184,8 @@ public class HtmlElement {
     public String getAttribute(String attribute) {
         return attributes.get(attribute);
     }
+
+    public String getText() {
+        return content;
+    }
 }

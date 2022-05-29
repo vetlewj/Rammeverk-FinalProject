@@ -30,6 +30,6 @@ public class ScraperUrlTest {
     @Test
     public void testGetAllH1Elements() {
         scraper.getElementsFromTag("h1");
-        Assertions.assertEquals("Michelangelo", scraper.getElementsFromTag("h1").get(0).toString());
+        Assertions.assertEquals("Michelangelo", scraper.getElementsFromTag("h1").get(0).getText());
     }
 }

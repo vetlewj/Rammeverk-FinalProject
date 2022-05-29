@@ -51,7 +51,7 @@ class ScraperTest {
     void getElementsFromTag() {
         Scraper scraper = Scraper.buildScraperWithString("<html><body><h1>Hello World</h1></body></html>");
         assertEquals(1, scraper.getElementsFromTag("h1").size());
-        assertEquals("Hello World", scraper.getElementsFromTag("h1").get(0).toString());
+        assertEquals("Hello World", scraper.getElementsFromTag("h1").get(0).getText());
     }
 
     @Test
