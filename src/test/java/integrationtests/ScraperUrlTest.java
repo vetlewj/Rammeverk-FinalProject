@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import scraper.Scraper;
+import scraper.templatescraper.templates.SnlArticleTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
@@ -31,5 +32,11 @@ public class ScraperUrlTest {
     public void testGetAllH1Elements() {
         scraper.getElementsFromTag("h1");
         Assertions.assertEquals("Michelangelo", scraper.getElementsFromTag("h1").get(0).getText());
+    }
+
+    @Test
+    public void initSnlArticleTemplate() {
+        SnlArticleTemplate snlArticleTemplate = new SnlArticleTemplate("https://snl.no/Michelangelo");
+        Assertions.assertEquals("Michelangelo", snlArticleTemplate.getHeader());
     }
 }

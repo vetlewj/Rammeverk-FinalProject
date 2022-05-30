@@ -1,6 +1,8 @@
 package scraper.templatescraper.templates;
 
 import org.jsoup.Jsoup;
+import scraper.Scraper;
+import scraper.exceptions.ScraperNotInitializedException;
 import scraper.html.HtmlElement;
 import scraper.templatescraper.ArticleTemplate;
 
@@ -19,15 +21,29 @@ import java.util.HashMap;
  * @see ArticleTemplate
  */
 public class SnlArticleTemplate extends ArticleTemplate {
-    // TODO: Missing implementation
-    @Override
-    public String getHeader() {
-        return null;
+    private Scraper scraper;
+
+    /**
+     * Sets the source for the templateScrper as a URL. SnlArticleTemplate only supports URL as a source as it is made
+     * to scrape articles from snl.no.
+     *
+     * @param url URL for the source of the templateScraper
+     */
+    public SnlArticleTemplate(String url) {
+        super();
+        setSourceAsUrl(url);
+        try {
+            scraper = getScraper();
+        } catch (ScraperNotInitializedException e) {
+            e.printStackTrace();
+        }
     }
+
+
 
     @Override
     public String getIntroduction() {
-        return null;
+        return scraper.getElementsFromTag("p").get(0).getText();
     }
 
     @Override
