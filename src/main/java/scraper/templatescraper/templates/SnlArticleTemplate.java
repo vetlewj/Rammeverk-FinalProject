@@ -1,12 +1,9 @@
 package scraper.templatescraper.templates;
 
-import org.jsoup.Jsoup;
 import scraper.Scraper;
 import scraper.exceptions.ScraperNotInitializedException;
-import scraper.html.HtmlElement;
 import scraper.templatescraper.ArticleTemplate;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
