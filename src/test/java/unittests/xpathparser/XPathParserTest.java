@@ -1,4 +1,4 @@
-package unittests;
+package unittests.xpathparser;
 
 import org.junit.jupiter.api.Test;
 import scraper.exceptions.InvalidXPathException;
