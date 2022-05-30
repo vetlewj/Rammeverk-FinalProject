@@ -39,16 +39,9 @@ public class SnlArticleTemplate extends ArticleTemplate {
         }
     }
 
-
-
     @Override
     public String getIntroduction() {
         return scraper.getElementsFromTag("p").get(0).getText();
-    }
-
-    @Override
-    public ArrayList<HtmlElement> getParagraphs() {
-        return null;
     }
 
     @Override
