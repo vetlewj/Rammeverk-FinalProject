@@ -2,37 +2,23 @@ package scraper.templatescraper;
 
 import scraper.templatescraper.TemplateScraper;
 
+/**
+ * @author Vetle Jahr
+ * @version 1.0
+ */
 public abstract class ProductTemplate extends TemplateScraper {
 
-    public String getName() {
-        // TODO: Missing implementation
-        return null;
-    }
+    public abstract String getName();
 
-    public float getPrice() {
-        // TODO: Missing implementation
-        return 0;
-    }
+    public abstract float getPrice();
 
-    public String getDescription() {
-        // TODO: Missing implementation
-        return null;
-    }
+    public abstract String getDescription();
 
-    public String getImage() {
-        // TODO: Missing implementation
-        return null;
-    }
+    public abstract String getImage();
 
-    public String getManufacturer() {
-        // TODO: Missing implementation
-        return null;
-    }
+    public abstract String getManufacturer();
 
-    public String getCategory() {
-        // TODO: Missing implementation
-        return null;
-    }
+    public abstract String getCategory();
 
     public static ProductTemplate buildTemplate(ProductTemplate template) {
         return template;
