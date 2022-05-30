@@ -1,6 +1,9 @@
 package scraper.templatescraper;
 
 /**
+ * Represents a template for scraping a product. An abstract class that defines methods that must be implemented by
+ * subclasses to define how a product is scraped. 
+ *
  * @author Vetle Jahr
  * @version 1.0
  */
