@@ -1,5 +1,6 @@
 package scraper.html;
 
+import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class HtmlElement {
     /**
      * HtmlElement's attributes
      */
-    private Map<String, String> attributes;
+    private Map<String, String> attributes = new HashMap<>();
     /**
      * Represents the child HTML elements. Only contains the direct children.
      */
@@ -64,7 +65,9 @@ public class HtmlElement {
         }
         HtmlElement htmlElement = new HtmlElement();
         htmlElement.tagName = element.tagName();
-        htmlElement.attributes = element.attributes().dataset(); //TODO: Fix setting attributes
+        for (Attribute attribute : element.attributes()){
+            htmlElement.attributes.put(attribute.getKey(), attribute.getValue());
+        }
         htmlElement.content = element.text();
         htmlElement.jsoupInternalElement = element;
 
