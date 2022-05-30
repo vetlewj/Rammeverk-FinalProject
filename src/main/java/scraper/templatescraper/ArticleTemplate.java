@@ -1,5 +1,6 @@
 package scraper.templatescraper;
 
+import scraper.exceptions.ScraperNotInitializedException;
 import scraper.html.HtmlElement;
 
 import java.time.LocalDate;
@@ -15,11 +16,19 @@ import java.util.HashMap;
  */
 public abstract class ArticleTemplate extends TemplateScraper {
     /**
-     * Gets the header of the article.
+     * Gets the header of the article. The default method will return the first H1 element. If there is no H1 element,
+     * the method will return null. Method should be overriden if the header is not the first H1 element.
      *
      * @return header of the article
      */
-    public abstract String getHeader();
+    public String getHeader(){
+        try {
+            return getScraper().getElementsFromTag("h1").get(0).getText();
+        } catch (ScraperNotInitializedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    };
 
     /**
      * Gets the introduction of the article.
