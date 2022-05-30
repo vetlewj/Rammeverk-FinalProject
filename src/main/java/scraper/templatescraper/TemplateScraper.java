@@ -5,6 +5,10 @@ import scraper.exceptions.ScraperNotInitializedException;
 
 import java.io.File;
 
+/**
+ * @author Vetle Jahr
+ * @version 1.0
+ */
 public abstract class TemplateScraper {
     private enum SourceType {URL, FILE, STRING}
 
@@ -24,14 +28,29 @@ public abstract class TemplateScraper {
         scraper = Scraper.buildScraperWithHtmlFile(file);
     }
 
+    /**
+     * Sets the source for the templateScrper as a URL.
+     *
+     * @param url URL for the source of the templateScraper
+     */
     public void setSourceAsUrl(String url) {
         setSource(url, SourceType.URL);
     }
 
+    /**
+     * Sets the source for the templateScrper as a html string.
+     *
+     * @param htmlString html string for the source of the templateScraper
+     */
     public void setSourceAsString(String htmlString) {
         setSource(htmlString, SourceType.STRING);
     }
 
+    /**
+     * Sets the source for the templateScrper as a html file.
+     *
+     * @param file html file for the source of the templateScraper
+     */
     public void setSourceAsFile(File file) {
         setSource(file);
     }
