@@ -10,6 +10,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * An implementation of an ArticleTemplate made to serve as an example of how a template could be implemented.
+ * The template is made to scrape articles from the website snl.no.
+ *
+ * @author Vetle Jahr
+ * @version 1.0
+ * @see ArticleTemplate
+ */
 public class SnlArticleTemplate extends ArticleTemplate {
     // TODO: Missing implementation
     @Override
