@@ -38,11 +38,19 @@ public abstract class ArticleTemplate extends TemplateScraper {
     public abstract String getIntroduction();
 
     /**
-     * Gets the paragraphs of the article as an arraylist of HtmlElement.
+     * Gets the paragraphs of the article as an arraylist of HtmlElement. Default implementation will return all
+     * p elements. Method should be overriden if the paragraphs are not all p elements.
      *
      * @return paragraphs of the article
      */
-    public abstract ArrayList<HtmlElement> getParagraphs();
+    public ArrayList<HtmlElement> getParagraphs(){
+        try {
+            return getScraper().getElementsFromTag("p");
+        } catch (ScraperNotInitializedException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     /**
      * Gets the text content of the article as a hashmap with the header as key and the text as value.
