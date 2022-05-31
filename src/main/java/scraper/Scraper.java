@@ -4,6 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import scraper.exceptions.InvalidSourceException;
 import scraper.exceptions.InvalidXPathException;
 import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
@@ -14,6 +15,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.spi.FileTypeDetector;
 import java.util.ArrayList;
 
 /**
@@ -62,7 +65,6 @@ public class Scraper {
     private Scraper(File file) {
         this.jsoupInternalDocument = FileToHtmlPage(file);
         setContent();
-        // TODO: Create exception if file is not found or if file is not HTML
     }
 
     /**
@@ -114,8 +116,17 @@ public class Scraper {
      * @return Scraper object built with a specified file.
      */
     public static Scraper buildScraperWithHtmlFile(File file) {
-        // TODO: Add check that file is .html
-        return new Scraper(file);
+        try {
+            if (!Files.probeContentType(file.toPath()).equals("text/html")) {
+                throw new InvalidSourceException("File is not HTML, please provide a valid HTML file");
+            }
+            else {
+                return new Scraper(file);
+            }
+        } catch (IOException | InvalidSourceException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
