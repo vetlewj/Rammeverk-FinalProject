@@ -39,11 +39,21 @@ public class SnlArticleTemplate extends ArticleTemplate {
         }
     }
 
+    /**
+     * Gets the introduction of the article. The introduction is the first paragraph of the article.
+     *
+     * @return introduction of the article as a String.
+     */
     @Override
     public String getIntroduction() {
         return scraper.getElementsFromTag("p").get(0).getText();
     }
 
+    /**
+     * Gets the text content of the article as a hashmap with the header as key and the text as value.
+     *
+     * @return text content of the article as a hashmap
+     */
     @Override
     public HashMap<String, String> getTextContentWithHeaders() {
         // Article section: class=l-article__section
@@ -63,6 +73,11 @@ public class SnlArticleTemplate extends ArticleTemplate {
         return textContent;
     }
 
+    /**
+     * Gets the writers of the article.
+     *
+     * @return writers of the article
+     */
     @Override
     public ArrayList<String> getWriters() {
         ArrayList<String> writers = new ArrayList<>();
@@ -73,11 +88,28 @@ public class SnlArticleTemplate extends ArticleTemplate {
         return writers;
     }
 
+    /**
+     * Gets the date the article was published. Snl articles only display the date of when the article was last updated,
+     * and not when the article was originally published, and therefore this method will return the date of the last
+     * update. This method return the same as {@link #getDateLastUpdated() getDateLastUpdated()} and the Date of
+     * {@link #getDateTimePublished() getDateTimePublished} and
+     * {@link #getDateTimeLastUpdated() getDateTimeLastUpdated}.
+     *
+     * @return date the article was published
+     */
     @Override
     public LocalDate getDatePublished() {
         return getDateTimePublished().toLocalDate();
     }
 
+    /**
+     * Gets the date and time the article was published. Snl articles only display the date of when the article was last updated,
+     * and not when the article was originally published, and therefore this method will return the date of the last
+     * update. This method return the same as {@link #getDateTimeLastUpdated() getDateTimeLastUpdated()}. If only the
+     * date is needed, {@link #getDatePublished() getDatePublished()} should be used instead.
+     *
+     * @return date the article was published
+     */
     @Override
     public LocalDateTime getDateTimePublished() {
         try {
@@ -91,11 +123,25 @@ public class SnlArticleTemplate extends ArticleTemplate {
         return null;
     }
 
+    /**
+     * Gets the date the article was last updated. Snl articles only display the date of when the article was last
+     * updated, and not when the article was originally published. Therefore, this method will return the same as
+     * {@link #getDatePublished() getDatePublished()}.
+     *
+     * @return date the article was last updated
+     */
     @Override
     public LocalDate getDateLastUpdated() {
         return getDatePublished();
     }
 
+    /**
+     * Gets the date and time the article was last updated. Snl articles only display the date of when the article was last
+     * updated, and not when the article was originally published. Therefore, this method will return the same as
+     * {@link #getDateTimePublished() getDateTimePublished()}.
+     *
+     * @return date and time the article was last updated
+     */
     @Override
     public LocalDateTime getDateTimeLastUpdated() {
         return getDateTimePublished();
