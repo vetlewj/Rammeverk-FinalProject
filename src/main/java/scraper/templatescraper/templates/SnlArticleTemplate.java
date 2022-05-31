@@ -65,8 +65,7 @@ public class SnlArticleTemplate extends ArticleTemplate {
             if (articleSection.getElementsFromClass("l-article__subheading").size() > 0) {
                 textContent.put(articleSection.getElementsFromClass("l-article__subheading").get(0).getText(),
                         articleSection.getElementsFromClass("l-article__body-text").get(0).getText());
-            }
-            else{
+            } else {
                 textContent.put("No heading", articleSection.getElementsFromClass("l-article__body-text").get(0).getText());
             }
         }
@@ -114,7 +113,6 @@ public class SnlArticleTemplate extends ArticleTemplate {
     public LocalDateTime getDateTimePublished() {
         try {
             String datetime = scraper.getElementsByXpath("//dd[@class='article-info__item-value']/time").get(0).getAttribute("datetime");
-            System.out.println(datetime);
             ZonedDateTime zonedDateTime = ZonedDateTime.parse(datetime);
             return zonedDateTime.toLocalDateTime();
         } catch (InvalidXPathException e) {
