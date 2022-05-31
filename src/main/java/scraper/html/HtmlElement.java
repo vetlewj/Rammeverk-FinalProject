@@ -3,6 +3,8 @@ package scraper.html;
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import scraper.exceptions.InvalidXPathException;
+import scraper.xpathparser.XPathParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -85,7 +87,11 @@ public class HtmlElement {
      * @return HtmlElement found.
      */
     public HtmlElement getChildByXPath(String XPathString) {
-        //TODO: Not implemented yet.
+        try {
+            return ElementToHtmlElement(jsoupInternalElement.select(XPathParser.convertXPathToCssSelector(XPathString)).first());
+        } catch (InvalidXPathException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
