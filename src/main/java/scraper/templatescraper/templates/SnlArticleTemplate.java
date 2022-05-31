@@ -64,7 +64,12 @@ public class SnlArticleTemplate extends ArticleTemplate {
 
     @Override
     public ArrayList<String> getWriters() {
-        return null;
+        ArrayList<String> writers = new ArrayList<>();
+        ArrayList<HtmlElement> elements = scraper.getElementsFromClass("article-info__author");
+        for (HtmlElement element : elements) {
+            writers.add(element.getText());
+        }
+        return writers;
     }
 
     @Override
