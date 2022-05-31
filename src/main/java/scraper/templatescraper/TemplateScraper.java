@@ -12,6 +12,13 @@ import java.io.File;
 public abstract class TemplateScraper {
     private enum SourceType {URL, FILE, STRING}
 
+    /**
+     * The various source types the TemplateScraper can use. The TemplateScraper can use a URL, a File or a String as
+     * source.
+     *
+     * @author Vetle Jahr
+     * @version 1.0
+     */
     public enum TemplateSourceType {URL, FILE, STRING}
 
     private Scraper scraper;
