@@ -181,15 +181,22 @@ public class HtmlElement {
     }
 
 
-    // TODO: Update toString method to <tagname attribute1=x>content<childelements></tagname>
+    /**
+     * Gets the HtmlElement as a string in the format of a html tag:
+     * <code><pre>&#60;tagname attribute1=x&#62;content&#60;childelements&#62;&#60;/tagname&#62;</pre></code>
+     * @return String representation of the HtmlElement.
+     */
     @Override
     public String toString() {
-        return "HtmlElement{" +
-               ", tagName='" + tagName + '\'' +
-               ", attributes=" + attributes +
-               ", childElements=" + childElements +
-               ", content='" + content + '\'' +
-               '}';
+        StringBuilder attributesString = new StringBuilder();
+        for (Map.Entry<String, String> entry : attributes.entrySet()) {
+            attributesString.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\"");
+        }
+        StringBuilder childElementsString = new StringBuilder();
+        for (HtmlElement element : childElements) {
+            childElementsString.append(element.toString());
+        }
+        return "<" + tagName + "" + attributesString + ">" + content + childElementsString + "</" + tagName + ">";
     }
 
     /**
@@ -201,10 +208,20 @@ public class HtmlElement {
         return attributes.get(attribute);
     }
 
+    /**
+     * Gets the text content of the HtmlElement.
+     * @return Text content of the HtmlElement.
+     */
     public String getText() {
         return content;
     }
 
+    /**
+     * Gets a list of HtmlElements from a specified class name. The class name is the name of the class attribute.
+     *
+     * @param className Class name of the elements to get.
+     * @return ArrayList of HtmlElements with the specified class name.
+     */
     public ArrayList<HtmlElement> getElementsFromClass(String className) {
         Elements elements = jsoupInternalElement.getElementsByClass(className);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
