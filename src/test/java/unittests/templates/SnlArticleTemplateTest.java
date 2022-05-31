@@ -3,6 +3,8 @@ package unittests.templates;
 import org.junit.jupiter.api.Test;
 import scraper.templatescraper.templates.SnlArticleTemplate;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,10 +26,16 @@ class SnlArticleTemplateTest {
 
     @Test
     void getDatePublished() {
+        SnlArticleTemplate snlArticleTemplate = new SnlArticleTemplate("https://snl.no/Michelangelo");
+        LocalDate datePublished = LocalDate.of(2021, 12, 1);
+        assertEquals(datePublished, snlArticleTemplate.getDatePublished());
     }
 
     @Test
     void getDateTimePublished() {
+        SnlArticleTemplate snlArticleTemplate = new SnlArticleTemplate("https://snl.no/Michelangelo");
+        LocalDateTime datePublished = LocalDateTime.of(2021, 12, 1, 11, 31,12);
+        assertEquals(datePublished, snlArticleTemplate.getDateTimePublished());
     }
 
     @Test

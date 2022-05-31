@@ -1,12 +1,14 @@
 package scraper.templatescraper.templates;
 
 import scraper.Scraper;
+import scraper.exceptions.InvalidXPathException;
 import scraper.exceptions.ScraperNotInitializedException;
 import scraper.html.HtmlElement;
 import scraper.templatescraper.ArticleTemplate;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -73,21 +75,29 @@ public class SnlArticleTemplate extends ArticleTemplate {
 
     @Override
     public LocalDate getDatePublished() {
-        return null;
+        return getDateTimePublished().toLocalDate();
     }
 
     @Override
     public LocalDateTime getDateTimePublished() {
+        try {
+            String datetime = scraper.getElementsByXpath("//dd[@class='article-info__item-value']/time").get(0).getAttribute("datetime");
+            System.out.println(datetime);
+            ZonedDateTime zonedDateTime = ZonedDateTime.parse(datetime);
+            return zonedDateTime.toLocalDateTime();
+        } catch (InvalidXPathException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
     public LocalDate getDateLastUpdated() {
-        return null;
+        return getDatePublished();
     }
 
     @Override
     public LocalDateTime getDateTimeLastUpdated() {
-        return null;
+        return getDateTimePublished();
     }
 }
