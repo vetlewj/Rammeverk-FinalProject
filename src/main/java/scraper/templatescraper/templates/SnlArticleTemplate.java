@@ -2,6 +2,7 @@ package scraper.templatescraper.templates;
 
 import scraper.Scraper;
 import scraper.exceptions.ScraperNotInitializedException;
+import scraper.html.HtmlElement;
 import scraper.templatescraper.ArticleTemplate;
 
 import java.time.LocalDate;
@@ -43,7 +44,22 @@ public class SnlArticleTemplate extends ArticleTemplate {
 
     @Override
     public HashMap<String, String> getTextContentWithHeaders() {
-        return null;
+        // Article section: class=l-article__section
+        // Article header: class=l-article__subheading
+        // Article text: class=l-article__body-text
+        HashMap<String, String> textContent = new HashMap<>();
+        ArrayList<HtmlElement> articleSections = scraper.getElementsFromClass("l-article__section");
+        for (HtmlElement articleSection : articleSections) {
+            if (articleSection.getElementsFromClass("l-article__subheading").size() > 0) {
+                textContent.put(articleSection.getElementsFromClass("l-article__subheading").get(0).getText(),
+                        articleSection.getElementsFromClass("l-article__body-text").get(0).getText());
+            }
+            else{
+                textContent.put("No heading", articleSection.getElementsFromClass("l-article__body-text").get(0).getText());
+            }
+        }
+        System.out.println(textContent.get("Biografier"));
+        return textContent;
     }
 
     @Override
