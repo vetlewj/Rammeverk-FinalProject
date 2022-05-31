@@ -192,7 +192,12 @@ public class HtmlElement {
                '}';
     }
 
-    public String getAttribute(String attribute) {
+    /**
+     * Gets the value of a specified attribute.
+     * @param attribute Attribute to get value of.
+     * @return Value of the attribute.
+     */
+    public String getAttributeValue(String attribute) {
         return attributes.get(attribute);
     }
 

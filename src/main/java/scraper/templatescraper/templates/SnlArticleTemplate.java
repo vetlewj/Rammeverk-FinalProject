@@ -112,7 +112,7 @@ public class SnlArticleTemplate extends ArticleTemplate {
     @Override
     public LocalDateTime getDateTimePublished() {
         try {
-            String datetime = scraper.getElementsByXpath("//dd[@class='article-info__item-value']/time").get(0).getAttribute("datetime");
+            String datetime = scraper.getElementsByXpath("//dd[@class='article-info__item-value']/time").get(0).getAttributeValue("datetime");
             ZonedDateTime zonedDateTime = ZonedDateTime.parse(datetime);
             return zonedDateTime.toLocalDateTime();
         } catch (InvalidXPathException e) {

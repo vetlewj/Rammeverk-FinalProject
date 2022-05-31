@@ -17,6 +17,6 @@ class HtmlElementTest {
         Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
 
         HtmlElement htmlElement = scraper.getElementsFromClass("page-title__heading-text").get(0);
-        assertEquals("page-title__heading-text", htmlElement.getAttribute("class"));
+        assertEquals("page-title__heading-text", htmlElement.getAttributeValue("class"));
     }
 }
