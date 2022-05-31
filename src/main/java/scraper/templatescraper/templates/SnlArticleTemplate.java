@@ -58,7 +58,6 @@ public class SnlArticleTemplate extends ArticleTemplate {
                 textContent.put("No heading", articleSection.getElementsFromClass("l-article__body-text").get(0).getText());
             }
         }
-        System.out.println(textContent.get("Biografier"));
         return textContent;
     }
 
