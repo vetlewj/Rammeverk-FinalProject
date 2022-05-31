@@ -1,0 +1,6 @@
+scraper
+scraper.exceptions
+scraper.html
+scraper.templatescraper
+scraper.templatescraper.templates
+scraper.xpathparser
