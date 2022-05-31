@@ -19,7 +19,19 @@ public abstract class TemplateScraper {
      * @author Vetle Jahr
      * @version 1.0
      */
-    public enum TemplateSourceType {URL, FILE, STRING}
+    public enum TemplateSourceType {
+        /**
+         * URL source type.
+         */
+        URL,
+        /**
+         * File source type. The file must be an HTML file.
+         */
+        FILE,
+        /**
+         * String source type. The string must be an HTML string.
+         */
+        STRING}
 
     private Scraper scraper;
 
@@ -79,6 +91,7 @@ public abstract class TemplateScraper {
     /**
      * Method is used to build a custom TemplateScraper Object from a given template.
      *
+     * @param template The template to use for the TemplateScraper
      * @param sourceType type of source for the template (URL, FILE, STRING)
      * @param source     source to scrape. depending on the sourceType:
      *                   URL - url to scrape

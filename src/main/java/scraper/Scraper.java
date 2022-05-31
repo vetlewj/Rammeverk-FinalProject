@@ -189,8 +189,10 @@ public class Scraper {
     /**
      * Gets a list of HtmlElements from the site base on the specified XPath.
      *
+     *
      * @param xPath XPath to retrieve elements from.
      * @return ArrayList of HtmlElements from the XPath.
+     * @throws InvalidXPathException if the XPath is invalid.
      */
     public ArrayList<HtmlElement> getElementsByXpath(String xPath) throws InvalidXPathException {
         Elements elements = jsoupInternalDocument.select(XPathParser.convertXPathToCssSelector(xPath));

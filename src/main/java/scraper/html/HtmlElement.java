@@ -183,7 +183,7 @@ public class HtmlElement {
 
     /**
      * Gets the HtmlElement as a string in the format of a html tag:
-     * <code><pre>&#60;tagname attribute1=x&#62;content&#60;childelements&#62;&#60;/tagname&#62;</pre></code>
+     * <code>&#60;tagname attribute1=x&#62;content&#60;childelements&#62;&#60;/tagname&#62;</code>
      * @return String representation of the HtmlElement.
      */
     @Override
