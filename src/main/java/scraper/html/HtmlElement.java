@@ -2,6 +2,7 @@ package scraper.html;
 
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -190,5 +191,14 @@ public class HtmlElement {
 
     public String getText() {
         return content;
+    }
+
+    public ArrayList<HtmlElement> getElementsFromClass(String className) {
+        Elements elements = jsoupInternalElement.getElementsByClass(className);
+        ArrayList<HtmlElement> htmlElements = new ArrayList<>();
+        for (Element element : elements) {
+            htmlElements.add(ElementToHtmlElement(element));
+        }
+        return htmlElements;
     }
 }
