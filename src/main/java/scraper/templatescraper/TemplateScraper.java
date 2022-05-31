@@ -6,6 +6,12 @@ import scraper.exceptions.ScraperNotInitializedException;
 import java.io.File;
 
 /**
+ * TemplateScraper is an abstract class that provides a template for creating a Scraper made to scrape websites.
+ * It provides a default implementation of some necessary methods for creating a TemplateScraper for various websites.
+ * Examples of how to inherit from TemplateScraper are provided in the subclasses: {@link ArticleTemplate} and
+ * {@link ProductTemplate}. The TemplateScraper is meant to be very easy to use once an implementation of it is provided
+ * through inheritance.
+ *
  * @author Vetle Jahr
  * @version 1.0
  */

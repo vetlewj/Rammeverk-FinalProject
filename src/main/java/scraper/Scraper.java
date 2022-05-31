@@ -19,6 +19,11 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 
 /**
+ * Scraper is a class that can be used to scrape HTML content from a URL, String or File. An instance of the Scraper
+ * class can be created with a URL, String or File through {@link #buildScraperWithURL(String) buildScraperWithURL},
+ * {@link #buildScraperWithString(String) buildScraperWithString} or
+ * {@link #buildScraperWithHtmlFile(File) buildScraperWithHtmlFile}.
+ *
  * @author Vetle Jahr
  * @version 1.0
  */
