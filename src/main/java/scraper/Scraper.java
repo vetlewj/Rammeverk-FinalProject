@@ -67,7 +67,7 @@ public class Scraper {
      * @param file file for the Scraper to use as Source for the content
      */
     private Scraper(File file) {
-        this.jsoupInternalDocument = FileToHtmlPage(file);
+        this.jsoupInternalDocument = parseFileToHtmlPage(file);
         setContent();
     }
 
@@ -84,7 +84,7 @@ public class Scraper {
      * @param file File to read into Document object.
      * @return Document object with parsed content or null object if error occurs.
      */
-    private Document FileToHtmlPage(File file) {
+    private Document parseFileToHtmlPage(File file) {
         try {
             return Jsoup.parse(file, "UTF-8");
         } catch (IOException e) {
