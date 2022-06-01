@@ -47,11 +47,11 @@ public class Scraper {
      */
     private Scraper(String source, SourceType sourceType) {
         if (sourceType == SourceType.STRING) {
-            this.jsoupInternalDocument = StringToHtmlPage(source);
+            this.jsoupInternalDocument = parseStringToHtmlPage(source);
             setContent();
         } else if (sourceType == SourceType.URL) {
             try (InputStream in = new URL(source).openStream()) {
-                this.jsoupInternalDocument = StringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
+                this.jsoupInternalDocument = parseStringToHtmlPage(new String(in.readAllBytes(), StandardCharsets.UTF_8));
                 setContent();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -157,7 +157,7 @@ public class Scraper {
      * @param source Source String to parse
      * @return Document object with parsed content
      */
-    private Document StringToHtmlPage(String source) {
+    private Document parseStringToHtmlPage(String source) {
         return Jsoup.parse(source);
     }
 
