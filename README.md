@@ -129,3 +129,24 @@ HtmlElement thirdElementInList = scraper.getElementFromXpath("//ul/li[3]");
 String textInsideSpan = scraper.getElementFromXpath("//div[@id='my-div']/span").toString();
 ```
 
+## File Structure of the framework
+```
+├── scraper/
+| ├── exceptions/
+| | ├── ElementNotFoundException.java
+| | ├── InvalidSourceException.java
+| | ├── InvalidXPathException.java
+| | └── ScraperNotInitializedException.java
+| ├── html/
+| | ├── HtmlElement.java
+| | └── HtmlDocument.java
+| ├── xpathparser/
+| | └── XPathParser.java
+│ ├── templatescraper/
+| | ├── templates/
+| | | └── SnlArticleTemplate.java
+| | ├── ArticleTemplate.java
+| | ├── ProductTemplate.java
+| | └── TemplateScraper.java
+| Scraper.java
+```
