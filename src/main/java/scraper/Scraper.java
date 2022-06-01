@@ -20,9 +20,9 @@ import java.util.ArrayList;
 
 /**
  * Scraper is a class that can be used to scrape HTML content from a URL, String or File. An instance of the Scraper
- * class can be created with a URL, String or File through {@link #buildScraperWithURL(String) buildScraperWithURL},
- * {@link #buildScraperWithString(String) buildScraperWithString} or
- * {@link #buildScraperWithHtmlFile(File) buildScraperWithHtmlFile}.
+ * class can be created with a URL, String or File through {@link #createScraperWithURL(String) buildScraperWithURL},
+ * {@link #createScraperWithString(String) buildScraperWithString} or
+ * {@link #createScraperWithHtmlFile(File) buildScraperWithHtmlFile}.
  *
  * @author Vetle Jahr
  * @version 1.0
@@ -39,8 +39,8 @@ public class Scraper {
     /**
      * Private constructor to instantiate a new Scraper object with a URL or a String. Method is private as Scraper
      * objects are intended to be instantiated with a factory pattern using
-     * {@link #buildScraperWithURL(String) buildScraperWithUrl} and
-     * {@link #buildScraperWithString(String) buildScraperWithString} methods.
+     * {@link #createScraperWithURL(String) buildScraperWithUrl} and
+     * {@link #createScraperWithString(String) buildScraperWithString} methods.
      *
      * @param source     Source for the Scraper to use, either a String to Scraper or a URL for a website to scrape
      * @param sourceType Enum type of source for the scraper to differentiate between String and URL
@@ -62,7 +62,7 @@ public class Scraper {
     /**
      * Private constructor to instantiate a new Scraper object with a File. Method is private as Scraper objects are
      * intended to be instantiated with a factory pattern using
-     * {@link #buildScraperWithHtmlFile(File) BuildScraperWithFile} method.
+     * {@link #createScraperWithHtmlFile(File) BuildScraperWithFile} method.
      *
      * @param file file for the Scraper to use as Source for the content
      */
@@ -99,7 +99,7 @@ public class Scraper {
      * @param url URL for the website to use the Scraper object on
      * @return Scraper Object built with the specified url
      */
-    public static Scraper buildScraperWithURL(String url) {
+    public static Scraper createScraperWithURL(String url) {
         return new Scraper(url, SourceType.URL);
     }
 
@@ -109,7 +109,7 @@ public class Scraper {
      * @param htmlString String in HTML format to use the Scraper object on
      * @return Scraper Object built with a specified String.
      */
-    public static Scraper buildScraperWithString(String htmlString) {
+    public static Scraper createScraperWithString(String htmlString) {
         return new Scraper(htmlString, SourceType.STRING);
     }
 
@@ -119,7 +119,7 @@ public class Scraper {
      * @param file html-file to use the Scraper object on
      * @return Scraper object built with a specified file.
      */
-    public static Scraper buildScraperWithHtmlFile(File file) {
+    public static Scraper createScraperWithHtmlFile(File file) {
         try {
             if (!Files.probeContentType(file.toPath()).equals("text/html")) {
                 throw new InvalidSourceException("File is not HTML, please provide a valid HTML file");

@@ -17,12 +17,12 @@ public class ScraperUrlTest {
 
     @BeforeEach
     public void initialize() {
-        scraper = Scraper.buildScraperWithURL("https://snl.no/Michelangelo");
+        scraper = Scraper.createScraperWithURL("https://snl.no/Michelangelo");
     }
 
     @Test
     void buildScraperWithURL() {
-        Scraper scraperFromUrl = Scraper.buildScraperWithURL("https://www.google.com");
+        Scraper scraperFromUrl = Scraper.createScraperWithURL("https://www.google.com");
         assertNotNull(scraperFromUrl);
         assertSame(scraperFromUrl.getClass(), Scraper.class);
     }

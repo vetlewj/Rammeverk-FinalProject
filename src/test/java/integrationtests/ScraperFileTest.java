@@ -13,7 +13,7 @@ public class ScraperFileTest {
     @Test
     void buildScraperWithHtmlFile(){
         File testFile = new File("src/test/resources/snlMichelangelo.html");
-        Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
+        Scraper scraper = Scraper.createScraperWithHtmlFile(testFile);
         assertNotNull(scraper);
         assertSame(scraper.getClass(), Scraper.class);
     }

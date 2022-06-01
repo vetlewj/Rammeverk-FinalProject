@@ -14,7 +14,7 @@ class HtmlElementTest {
     @Test
     void getAttribute() {
         File testFile = new File("src/test/resources/snlMichelangelo.html");
-        Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
+        Scraper scraper = Scraper.createScraperWithHtmlFile(testFile);
 
         HtmlElement htmlElement = scraper.getElementsFromClass("page-title__heading-text").get(0);
         assertEquals("page-title__heading-text", htmlElement.getAttributeValue("class"));
@@ -23,7 +23,7 @@ class HtmlElementTest {
     @Test
     void stringRepresentationOfHtmlElement(){
         File testFile = new File("src/test/resources/snlMichelangelo.html");
-        Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
+        Scraper scraper = Scraper.createScraperWithHtmlFile(testFile);
 
         HtmlElement htmlElement = scraper.getElementsFromClass("page-title__heading-text").get(0);
         assertEquals("<span class=\"page-title__heading-text\">Michelangelo</span>", htmlElement.toString());

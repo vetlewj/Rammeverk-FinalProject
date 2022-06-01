@@ -14,14 +14,14 @@ class ScraperTest {
 
     @Test
     void buildScraperWithString() {
-        Scraper scraper = Scraper.buildScraperWithString("<html><body><h1>Hello World</h1></body></html>");
+        Scraper scraper = Scraper.createScraperWithString("<html><body><h1>Hello World</h1></body></html>");
         assertNotNull(scraper);
         assertSame(scraper.getClass(), Scraper.class);
     }
 
     @Test
     void getRawContent() {
-        Scraper scraper = Scraper.buildScraperWithString("""
+        Scraper scraper = Scraper.createScraperWithString("""
                 <html>
                 <head></head>
                 <body>
@@ -43,13 +43,13 @@ class ScraperTest {
 
     @Test
     void getContentDocumentObject() {
-        Scraper scraper = Scraper.buildScraperWithString("<html><body><h1>Hello World</h1></body></html>");
+        Scraper scraper = Scraper.createScraperWithString("<html><body><h1>Hello World</h1></body></html>");
         assertSame(scraper.getContentDocumentObject().getClass(), HtmlDocument.class);
     }
 
     @Test
     void getElementsFromTag() {
-        Scraper scraper = Scraper.buildScraperWithString("<html><body><h1>Hello World</h1></body></html>");
+        Scraper scraper = Scraper.createScraperWithString("<html><body><h1>Hello World</h1></body></html>");
         assertEquals(1, scraper.getElementsFromTag("h1").size());
         assertEquals("Hello World", scraper.getElementsFromTag("h1").get(0).getText());
     }
@@ -65,7 +65,7 @@ class ScraperTest {
     @Test
     void getElementByXpath() {
         File testFile = new File("src/test/resources/snlMichelangelo.html");
-        Scraper scraper = Scraper.buildScraperWithHtmlFile(testFile);
+        Scraper scraper = Scraper.createScraperWithHtmlFile(testFile);
         try {
             HtmlElement element = scraper.getElementByXpath("//span[@class=\"page-title__heading-text\"]");
             assertEquals("Michelangelo", element.getStringContentOfCurrentElement());

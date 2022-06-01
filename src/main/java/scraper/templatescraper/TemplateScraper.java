@@ -43,14 +43,14 @@ public abstract class TemplateScraper {
 
     private void setSource(String source, SourceType sourceType) {
         if (sourceType == SourceType.URL) {
-            scraper = Scraper.buildScraperWithURL(source);
+            scraper = Scraper.createScraperWithURL(source);
         } else if (sourceType == SourceType.STRING) {
-            scraper = Scraper.buildScraperWithString(source);
+            scraper = Scraper.createScraperWithString(source);
         }
     }
 
     private void setSource(File file) {
-        scraper = Scraper.buildScraperWithHtmlFile(file);
+        scraper = Scraper.createScraperWithHtmlFile(file);
     }
 
     /**
