@@ -32,3 +32,4 @@ src/main/java/testingImplementation/Main.java
 src/main/java/testingImplementation/TestingImplementation.java
 documentation/ThirdDelivery.pdf
 src/test/resources/Scenarios.md
+/out/
