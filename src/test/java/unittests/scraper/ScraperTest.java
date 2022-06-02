@@ -3,10 +3,12 @@ package unittests.scraper;
 import org.junit.jupiter.api.Test;
 import scraper.Scraper;
 import scraper.exceptions.InvalidXPathException;
+import scraper.exceptions.ScraperNotInitializedException;
 import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -60,6 +62,14 @@ class ScraperTest {
 
     @Test
     void getElementsByXpath() {
+        Scraper scraper = Scraper.createScraperWithURL("https://www.nrk.no/nordland/blafrostfestivalen-reagerer_-saltdal-kommune-stenger-slipen-scene-1.15988754");
+        String articleHeader = "";
+        try {
+             articleHeader = scraper.getElementsByXpath("//h1[@class=\"title title-large article-title\"]").get(0).getText();
+        } catch (InvalidXPathException e) {
+            e.printStackTrace();
+        }
+        assertTrue(articleHeader.contains("Kommune truet seg selv med bot"));
     }
 
     @Test
