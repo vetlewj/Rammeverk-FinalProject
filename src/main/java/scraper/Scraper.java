@@ -8,6 +8,7 @@ import scraper.exceptions.InvalidSourceException;
 import scraper.exceptions.InvalidXPathException;
 import scraper.html.HtmlDocument;
 import scraper.html.HtmlElement;
+import scraper.utils.SourceType;
 import scraper.xpathparser.XPathParser;
 
 import java.io.File;
@@ -28,8 +29,6 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Scraper {
-    private enum SourceType {URL, STRING}
-
     private Document jsoupInternalDocument;
     private HtmlDocument content;
 
@@ -123,8 +122,7 @@ public class Scraper {
         try {
             if (!Files.probeContentType(file.toPath()).equals("text/html")) {
                 throw new InvalidSourceException("File is not HTML, please provide a valid HTML file");
-            }
-            else {
+            } else {
                 return new Scraper(file);
             }
         } catch (IOException | InvalidSourceException e) {
@@ -193,7 +191,6 @@ public class Scraper {
 
     /**
      * Gets a list of HtmlElements from the site base on the specified XPath.
-     *
      *
      * @param xPath XPath to retrieve elements from.
      * @return ArrayList of HtmlElements from the XPath.

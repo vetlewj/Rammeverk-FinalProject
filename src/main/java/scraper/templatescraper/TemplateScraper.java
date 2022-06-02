@@ -2,6 +2,7 @@ package scraper.templatescraper;
 
 import scraper.Scraper;
 import scraper.exceptions.ScraperNotInitializedException;
+import scraper.utils.SourceType;
 
 import java.io.File;
 
@@ -16,29 +17,6 @@ import java.io.File;
  * @version 1.0
  */
 public abstract class TemplateScraper {
-    private enum SourceType {URL, FILE, STRING}
-
-    /**
-     * The various source types the TemplateScraper can use. The TemplateScraper can use a URL, a File or a String as
-     * source.
-     *
-     * @author Vetle Jahr
-     * @version 1.0
-     */
-    public enum TemplateSourceType {
-        /**
-         * URL source type.
-         */
-        URL,
-        /**
-         * File source type. The file must be an HTML file.
-         */
-        FILE,
-        /**
-         * String source type. The string must be an HTML string.
-         */
-        STRING}
-
     private Scraper scraper;
 
     private void setSource(String source, SourceType sourceType) {
@@ -105,16 +83,16 @@ public abstract class TemplateScraper {
      *                   STRING - html string to scrape
      * @return TemplateScraper object
      */
-    public static TemplateScraper buildCustomTemplate(TemplateScraper template, TemplateSourceType sourceType, String source) {
-        if (sourceType == TemplateSourceType.URL) {
+    public static TemplateScraper buildCustomTemplate(TemplateScraper template, SourceType sourceType, String source) {
+        if (sourceType == SourceType.URL) {
             template.setSourceAsUrl(source);
-        } else if (sourceType == TemplateSourceType.FILE) {
+        } else if (sourceType == SourceType.FILE) {
             File sourceFile = new File(source);
             if (!sourceFile.exists()) {
                 throw new IllegalArgumentException("File does not exist");
             }
             template.setSourceAsFile(sourceFile);
-        } else if (sourceType == TemplateSourceType.STRING) {
+        } else if (sourceType == SourceType.STRING) {
             template.setSourceAsString(source);
         } else {
             throw new IllegalArgumentException("Invalid sourceType");
