@@ -1,6 +1,9 @@
 # Getting started
 The framework is divided into two layers; Scraper, a regular web scraper, and TemplateScraper, a set of classes and functions to create your own custom templates for scraping websites. 
 
+## JavaDoc
+JavaDoc for the framework is available [**here**](https://vetlewj.github.io/TemplateScraper/index.html)
+
 ## Setup
 The framework can be downloaded from [GitHub](https://github.com/vetlewj/Rammeverk-FinalProject). There are various ways 
 to install the framework through Github, but the preferred method is to download from the assets under the newest tags. 
