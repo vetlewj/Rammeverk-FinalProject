@@ -62,11 +62,11 @@ public class SnlArticleTemplate extends ArticleTemplate {
         HashMap<String, String> textContent = new HashMap<>();
         ArrayList<HtmlElement> articleSections = scraper.getElementsByClass("l-article__section");
         for (HtmlElement articleSection : articleSections) {
-            if (articleSection.getElementsFromClass("l-article__subheading").size() > 0) {
-                textContent.put(articleSection.getElementsFromClass("l-article__subheading").get(0).getText(),
-                        articleSection.getElementsFromClass("l-article__body-text").get(0).getText());
+            if (articleSection.getElementsByClass("l-article__subheading").size() > 0) {
+                textContent.put(articleSection.getElementsByClass("l-article__subheading").get(0).getText(),
+                        articleSection.getElementsByClass("l-article__body-text").get(0).getText());
             } else {
-                textContent.put("No heading", articleSection.getElementsFromClass("l-article__body-text").get(0).getText());
+                textContent.put("No heading", articleSection.getElementsByClass("l-article__body-text").get(0).getText());
             }
         }
         return textContent;

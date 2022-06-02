@@ -222,7 +222,7 @@ public class HtmlElement {
      * @param className Class name of the elements to get.
      * @return ArrayList of HtmlElements with the specified class name.
      */
-    public ArrayList<HtmlElement> getElementsFromClass(String className) {
+    public ArrayList<HtmlElement> getElementsByClass(String className) {
         Elements elements = jsoupInternalElement.getElementsByClass(className);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
         for (Element element : elements) {
