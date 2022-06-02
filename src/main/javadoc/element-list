@@ -3,4 +3,5 @@ scraper.exceptions
 scraper.html
 scraper.templatescraper
 scraper.templatescraper.templates
+scraper.utils
 scraper.xpathparser
