@@ -167,7 +167,7 @@ public class Scraper {
      * @param htmlTag name of the html tag to retrieve.
      * @return ArrayList of HtmlElements from requested tag.
      */
-    public ArrayList<HtmlElement> getElementsFromTag(String htmlTag) {
+    public ArrayList<HtmlElement> getElementsByTag(String htmlTag) {
         Elements elements = jsoupInternalDocument.getElementsByTag(htmlTag);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
         for (Element el : elements) {
@@ -182,7 +182,7 @@ public class Scraper {
      * @param className Value of the class attribute of the html tags to retrieve.
      * @return ArrayList of HtmlElements with the requested class attribute.
      */
-    public ArrayList<HtmlElement> getElementsFromClass(String className) {
+    public ArrayList<HtmlElement> getElementsByClass(String className) {
         Elements elements = jsoupInternalDocument.getElementsByClass(className);
         ArrayList<HtmlElement> htmlElements = new ArrayList<>();
         for (Element el : elements) {

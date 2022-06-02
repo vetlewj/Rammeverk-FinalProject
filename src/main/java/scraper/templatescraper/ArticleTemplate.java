@@ -23,7 +23,7 @@ public abstract class ArticleTemplate extends TemplateScraper {
      */
     public String getHeader(){
         try {
-            return getScraper().getElementsFromTag("h1").get(0).getText();
+            return getScraper().getElementsByTag("h1").get(0).getText();
         } catch (ScraperNotInitializedException e) {
             e.printStackTrace();
             return null;
@@ -45,7 +45,7 @@ public abstract class ArticleTemplate extends TemplateScraper {
      */
     public ArrayList<HtmlElement> getParagraphs(){
         try {
-            return getScraper().getElementsFromTag("p");
+            return getScraper().getElementsByTag("p");
         } catch (ScraperNotInitializedException e) {
             e.printStackTrace();
             return null;

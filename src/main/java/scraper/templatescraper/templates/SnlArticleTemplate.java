@@ -46,7 +46,7 @@ public class SnlArticleTemplate extends ArticleTemplate {
      */
     @Override
     public String getIntroduction() {
-        return scraper.getElementsFromTag("p").get(0).getText();
+        return scraper.getElementsByTag("p").get(0).getText();
     }
 
     /**
@@ -60,7 +60,7 @@ public class SnlArticleTemplate extends ArticleTemplate {
         // Article header: class=l-article__subheading
         // Article text: class=l-article__body-text
         HashMap<String, String> textContent = new HashMap<>();
-        ArrayList<HtmlElement> articleSections = scraper.getElementsFromClass("l-article__section");
+        ArrayList<HtmlElement> articleSections = scraper.getElementsByClass("l-article__section");
         for (HtmlElement articleSection : articleSections) {
             if (articleSection.getElementsFromClass("l-article__subheading").size() > 0) {
                 textContent.put(articleSection.getElementsFromClass("l-article__subheading").get(0).getText(),
@@ -80,7 +80,7 @@ public class SnlArticleTemplate extends ArticleTemplate {
     @Override
     public ArrayList<String> getWriters() {
         ArrayList<String> writers = new ArrayList<>();
-        ArrayList<HtmlElement> elements = scraper.getElementsFromClass("article-info__author");
+        ArrayList<HtmlElement> elements = scraper.getElementsByClass("article-info__author");
         for (HtmlElement element : elements) {
             writers.add(element.getText());
         }
