@@ -192,13 +192,13 @@ To use these XPath in a scraper, you can use the getElementFromXpath method:
 // Create a scraper
 Scraper scraper = Scraper.buildScraperWithFile(File fileToScrape);
 
-// 1 
+// 1 get element with id "Carlsen"
 HtmlElement element = scraper.getElementFromXpath("//ul/li[@id='Carlsen']");
 
-// 2 
+// 2 get all elements with the class "chessplayer"
 ArrayList<HtmlElement> elements = scraper.getElementsFromXpath("//ul/li[@class='chessplayer']");
 
-// get the text inside the span element
+// 3 get the text inside the span element
 String textInsideSpan = scraper.getElementFromXpath("//div[@id='my-div']/span").getText();
 
 ```
