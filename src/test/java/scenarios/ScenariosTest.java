@@ -8,7 +8,7 @@ public class ScenariosTest {
     public void scenario1(){
 
     }
-    // 2. Set up a webscraper for an html called “Michelangelo.html” located in the root folder of the project, and retrieve all p elements in the file to an arraylist
+    // 2. Set up a webscraper for an html called "Michelangelo.html" located in the root folder of the project, and retrieve all p elements in the file to an arraylist
     @Test
     public void scenario2(){
 
