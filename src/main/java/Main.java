@@ -47,9 +47,6 @@ public class Main {
             System.out.println(el.toString());
         }
 
-        Scraper pwrScraper = Scraper.createScraperWithURL("https://www.power.no/hvitevarer/klesvask/tilbehoer-til-vask-og-toerk/toerkestativ/beha-tsh80-skotoerkehylle/p-233294/");
-        System.out.println(pwrScraper.getRawContent());
-
         // 5. Create a template for a webscraper made to scrape general facts about a country from factbox on articles about countries for snl.no.
         class CountryTemplate extends SnlArticleTemplate {
 
