@@ -157,6 +157,13 @@ XPath stands for XML Path Language [(MDN web docs, 2022)](https://developer.mozi
 used as a way to select elements in an XML document. XML and HTML are similar and XPath can also be used to select 
 elements in HTML. XPath works, as the name may suggest, by finding elements through a path. 
 
+TemplateScraper currently have support for this XPath syntax: 
+```
+// : Ancestor
+/ : Parent
+[@key=value] : Attribute
+```
+
 Given the following HTML document:
 
 ```html
