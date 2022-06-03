@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Repos/Rammeverk-FinalProject/src/main</OriginalElement>
+  <nodes>
+    <node x="-894.1663688206288" y="1044.9676840215443">scraper.templatescraper.templates.SnlArticleTemplate</node>
+    <node x="68.80161579892263" y="766.4726211849191">scraper.exceptions.ElementNotFoundException</node>
+    <node x="-528.2644915191305" y="142.4766606822261">scraper.xpathparser.XPathParser</node>
+    <node x="-882.0795723090765" y="24.499102333931774">scraper.html.HtmlDocument</node>
+    <node x="-184.50067761775585" y="180.04757630161566">scraper.Scraper</node>
+    <node x="77.14721723518858" y="664.9295332136444">scraper.utils.SourceType</node>
+    <node x="-947.0283054205053" y="167.84470377019744">scraper.html.HtmlElement</node>
+    <node x="-509.12126409292034" y="234.3123877917414">scraper.exceptions.InvalidXPathException</node>
+    <node x="-528.2644915191305" y="638.8671454219028">scraper.templatescraper.TemplateScraper</node>
+    <node x="-933.5278856360325" y="689.9989515260321">scraper.templatescraper.ArticleTemplate</node>
+    <node x="-455.5298026226701" y="931.4174147217235">scraper.exceptions.ScraperNotInitializedException</node>
+    <node x="-87.05453758184933" y="915.1669658886889">scraper.templatescraper.ProductTemplate</node>
+    <node x="77.14721723518858" y="601.1822262118491">scraper.exceptions.InvalidSourceException</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="scraper.html.HtmlElement" target="scraper.xpathparser.XPathParser" relationship="DEPENDENCY">
+      <point x="170.50030542050524" y="-29.999703770197414" />
+      <point x="-395.5" y="318.845" />
+      <point x="-395.5" y="299.0" />
+      <point x="-526.621" y="299.0" />
+      <point x="-131.35650848086948" y="27.000339317773893" />
+    </edge>
+    <edge source="scraper.html.HtmlDocument" target="scraper.html.HtmlElement" relationship="DEPENDENCY">
+      <point x="85.99957230907648" y="-1.0233393177827566E-4" />
+      <point x="-558.0" y="84.499" />
+      <point x="-558.0" y="348.845" />
+      <point x="170.50030542050524" y="2.9622980258636744E-4" />
+    </edge>
+    <edge source="scraper.templatescraper.templates.SnlArticleTemplate" target="scraper.html.HtmlElement" relationship="DEPENDENCY">
+      <point x="3.688206287506546E-4" y="-92.99968402154423" />
+      <point x="-722.166" y="937.499" />
+      <point x="-558.0" y="937.499" />
+      <point x="-558.0" y="348.845" />
+      <point x="170.50030542050524" y="2.9622980258636744E-4" />
+    </edge>
+    <edge source="scraper.templatescraper.TemplateScraper" target="scraper.exceptions.ScraperNotInitializedException" relationship="CREATE">
+      <point x="-32.7653111035396" y="104.0" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="scraper.templatescraper.templates.SnlArticleTemplate" target="scraper.templatescraper.TemplateScraper" relationship="DEPENDENCY">
+      <point x="172.0" y="15.000315978455774" />
+      <point x="-473.0298026226701" y="1152.968" />
+      <point x="-173.7653111035396" y="104.0" />
+    </edge>
+    <edge source="scraper.Scraper" target="scraper.utils.SourceType" relationship="DEPENDENCY">
+      <point x="29.999677617755854" y="192.00042369838434" />
+      <point x="24.499" y="648.0" />
+      <point x="173.647" y="648.0" />
+      <point x="-2.172351885860735E-4" y="-37.99953321364444" />
+    </edge>
+    <edge source="scraper.templatescraper.TemplateScraper" target="scraper.templatescraper.ArticleTemplate" relationship="DEPENDENCY">
+      <point x="-229.0" y="0.0" />
+      <point x="172.0" y="-62.13180610412928" />
+    </edge>
+    <edge source="scraper.templatescraper.ProductTemplate" target="scraper.templatescraper.TemplateScraper" relationship="GENERALIZATION">
+      <point x="-4.624181506756031E-4" y="-92.99996588868885" />
+      <point x="69.945" y="898.0" />
+      <point x="-299.264" y="898.0" />
+      <point x="4.915191304917244E-4" y="103.99985457809714" />
+    </edge>
+    <edge source="scraper.Scraper" target="scraper.html.HtmlDocument" relationship="CREATE">
+      <point x="0.0" y="-192.0" />
+      <point x="-5.500677617755855" y="69.499" />
+      <point x="86.0" y="-15.000102333931778" />
+    </edge>
+    <edge source="scraper.templatescraper.TemplateScraper" target="scraper.Scraper" relationship="DEPENDENCY">
+      <point x="4.915191304917244E-4" y="-104.00014542190286" />
+      <point x="-299.264" y="606.0" />
+      <point x="-5.501000000000001" y="606.0" />
+      <point x="-3.223822441462687E-4" y="192.00042369838434" />
+    </edge>
+    <edge source="scraper.templatescraper.templates.SnlArticleTemplate" target="scraper.Scraper" relationship="TO_ONE">
+      <point x="172.00036882062875" y="3.159784557738021E-4" />
+      <point x="-490.764" y="1137.968" />
+      <point x="-490.764" y="879.367" />
+      <point x="-52.764" y="879.367" />
+      <point x="-52.764" y="623.0" />
+      <point x="9.499" y="623.0" />
+      <point x="14.999677617755856" y="192.00042369838434" />
+    </edge>
+    <edge source="scraper.templatescraper.templates.SnlArticleTemplate" target="scraper.templatescraper.ArticleTemplate" relationship="GENERALIZATION">
+      <point x="-39.36151681540366" y="-93.0" />
+      <point x="0.0" y="115.0" />
+    </edge>
+    <edge source="scraper.templatescraper.TemplateScraper" target="scraper.Scraper" relationship="TO_ONE">
+      <point x="-132.2355084808695" y="-104.00014542190286" />
+      <point x="-431.5" y="623.0" />
+      <point x="9.499" y="623.0" />
+      <point x="14.999677617755856" y="192.00042369838434" />
+    </edge>
+    <edge source="scraper.templatescraper.templates.SnlArticleTemplate" target="scraper.Scraper" relationship="DEPENDENCY">
+      <point x="-171.99963117937125" y="3.159784557738021E-4" />
+      <point x="-951.028" y="1137.968" />
+      <point x="-951.028" y="606.0" />
+      <point x="-5.501000000000001" y="606.0" />
+      <point x="-3.223822441462687E-4" y="192.00042369838434" />
+    </edge>
+    <edge source="scraper.xpathparser.XPathParser" target="scraper.exceptions.InvalidXPathException" relationship="DEPENDENCY">
+      <point x="4.915191304917244E-4" y="27.000339317773893" />
+      <point x="-395.264" y="216.0" />
+      <point x="-413.621" y="216.0" />
+      <point x="2.6409292036078114E-4" y="-14.500387791741389" />
+    </edge>
+    <edge source="scraper.Scraper" target="scraper.exceptions.InvalidSourceException" relationship="CREATE">
+      <point x="171.5" y="192.0" />
+      <point x="-10.647894852944432" y="-14.5" />
+    </edge>
+    <edge source="scraper.templatescraper.templates.SnlArticleTemplate" target="scraper.exceptions.ScraperNotInitializedException" relationship="DEPENDENCY">
+      <point x="172.00036882062875" y="-76.4676840215443" />
+      <point x="-520.0" y="1061.5" />
+      <point x="-520.0" y="945.917" />
+      <point x="-123.50019737732987" y="-4.1472172347312153E-4" />
+    </edge>
+    <edge source="scraper.Scraper" target="scraper.xpathparser.XPathParser" relationship="DEPENDENCY">
+      <point x="-179.00032238224415" y="-38.202576301615636" />
+      <point x="-395.5" y="333.845" />
+      <point x="-395.5" y="299.0" />
+      <point x="-526.621" y="299.0" />
+      <point x="-131.35650848086948" y="27.000339317773893" />
+    </edge>
+    <edge source="scraper.templatescraper.templates.SnlArticleTemplate" target="scraper.exceptions.InvalidXPathException" relationship="DEPENDENCY">
+      <point x="164.1663688206288" y="-92.99968402154423" />
+      <point x="-558.0" y="977.917" />
+      <point x="-573.0" y="977.917" />
+      <point x="-573.0" y="216.0" />
+      <point x="-413.621" y="216.0" />
+      <point x="2.6409292036078114E-4" y="-14.500387791741389" />
+    </edge>
+    <edge source="scraper.templatescraper.ArticleTemplate" target="scraper.templatescraper.TemplateScraper" relationship="GENERALIZATION">
+      <point x="-150.1381143639676" y="115.00004847396792" />
+      <point x="-911.666" y="1248.468" />
+      <point x="-158.5" y="1248.468" />
+      <point x="-158.5" y="898.0" />
+      <point x="-299.264" y="898.0" />
+      <point x="4.915191304917244E-4" y="103.99985457809714" />
+    </edge>
+    <edge source="scraper.templatescraper.ArticleTemplate" target="scraper.exceptions.ScraperNotInitializedException" relationship="DEPENDENCY">
+      <point x="171.99988563603245" y="64.5010484739679" />
+      <point x="-520.0" y="869.5" />
+      <point x="-520.0" y="945.917" />
+      <point x="-123.50019737732987" y="-4.1472172347312153E-4" />
+    </edge>
+    <edge source="scraper.Scraper" target="scraper.html.HtmlElement" relationship="DEPENDENCY">
+      <point x="-179.00032238224415" y="4.2369838433842233E-4" />
+      <point x="-558.0" y="372.048" />
+      <point x="-558.0" y="348.845" />
+      <point x="170.50030542050524" y="2.9622980258636744E-4" />
+    </edge>
+    <edge source="scraper.Scraper" target="scraper.html.HtmlDocument" relationship="TO_ONE">
+      <point x="15.0" y="-192.0" />
+      <point x="9.499322382244145" y="54.498999999999995" />
+      <point x="86.0" y="-30.00010233393178" />
+    </edge>
+    <edge source="scraper.html.HtmlDocument" target="scraper.html.HtmlElement" relationship="TO_ONE">
+      <point x="19.551266888571263" y="60.0" />
+      <point x="0.0" y="-181.0" />
+    </edge>
+    <edge source="scraper.templatescraper.TemplateScraper" target="scraper.templatescraper.ProductTemplate" relationship="DEPENDENCY">
+      <point x="221.5" y="104.0" />
+      <point x="-147.70995393728117" y="-93.0" />
+    </edge>
+    <edge source="scraper.templatescraper.ArticleTemplate" target="scraper.Scraper" relationship="DEPENDENCY">
+      <point x="-1.1436396755470923E-4" y="-114.99995152603208" />
+      <point x="-761.528" y="606.0" />
+      <point x="-5.501000000000001" y="606.0" />
+      <point x="-3.223822441462687E-4" y="192.00042369838434" />
+    </edge>
+    <edge source="scraper.templatescraper.ArticleTemplate" target="scraper.html.HtmlElement" relationship="DEPENDENCY">
+      <point x="171.99988563603245" y="4.8473967922291195E-5" />
+      <point x="-558.0" y="804.999" />
+      <point x="-558.0" y="348.845" />
+      <point x="170.50030542050524" y="2.9622980258636744E-4" />
+    </edge>
+    <edge source="scraper.html.HtmlElement" target="scraper.exceptions.InvalidXPathException" relationship="DEPENDENCY">
+      <point x="170.50030542050524" y="-14.999703770197414" />
+      <point x="-573.0" y="333.845" />
+      <point x="-573.0" y="216.0" />
+      <point x="-413.621" y="216.0" />
+      <point x="2.6409292036078114E-4" y="-14.500387791741389" />
+    </edge>
+    <edge source="scraper.Scraper" target="scraper.exceptions.InvalidXPathException" relationship="DEPENDENCY">
+      <point x="-179.00032238224415" y="-183.07057630161566" />
+      <point x="-244.764" y="188.977" />
+      <point x="-244.764" y="216.0" />
+      <point x="-413.621" y="216.0" />
+      <point x="2.6409292036078114E-4" y="-14.500387791741389" />
+    </edge>
+    <edge source="scraper.templatescraper.TemplateScraper" target="scraper.utils.SourceType" relationship="DEPENDENCY">
+      <point x="229.0004915191305" y="-9.43714542190287" />
+      <point x="51.302" y="733.43" />
+      <point x="51.302" y="648.0" />
+      <point x="173.647" y="648.0" />
+      <point x="-2.172351885860735E-4" y="-37.99953321364444" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8947791164658635" showDependencies="true" x="-327.0" y="636.5" />
+  <SelectedNodes>
+    <node>scraper.templatescraper.templates.SnlArticleTemplate</node>
+    <node>scraper.exceptions.ElementNotFoundException</node>
+    <node>scraper.xpathparser.XPathParser</node>
+    <node>scraper.html.HtmlDocument</node>
+    <node>scraper.Scraper</node>
+    <node>scraper.utils.SourceType</node>
+    <node>scraper.html.HtmlElement</node>
+    <node>scraper.exceptions.InvalidXPathException</node>
+    <node>scraper.templatescraper.TemplateScraper</node>
+    <node>scraper.templatescraper.ArticleTemplate</node>
+    <node>scraper.exceptions.ScraperNotInitializedException</node>
+    <node>scraper.templatescraper.ProductTemplate</node>
+    <node>scraper.exceptions.InvalidSourceException</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
