@@ -72,6 +72,7 @@ public class Main {
         }
 
         // 6. Get all the facts in the factbox on https://snl.no/Australia using the template created in scenario 5 and print them to the console.
+        System.out.println("==== Scenario 6 ====");
         CountryTemplate australia = new CountryTemplate("https://snl.no/Australia");
 
         HashMap<String, String> australiaFacts = australia.getFacts();
@@ -80,6 +81,7 @@ public class Main {
         }
 
         // 7. Get writers and date the article was published and last updated for https://snl.no/sjakk from an already created template for articles on snl.no.
+        System.out.println("==== Scenario 7 ====");
         SnlArticleTemplate article = new SnlArticleTemplate("https://snl.no/sjakk");
 
         System.out.println(article.getWriters());
