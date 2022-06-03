@@ -57,17 +57,17 @@ Scraper can be used to scrape HTML documents and get requested data.
 #### Set up a webscraper for https://snl.no/Michelangelo and retrieve all h1 elements.
 
 ```java
-Scraper scraper1 = Scraper.buildScraperWithURL("https://snl.no/Michelangelo");
-scraper1.getElementsFromTag("h1");
+Scraper scraper1 = Scraper.createScraperWithURL("https://snl.no/Michelangelo");
+scraper1.getElementsByTag("h1");
 ```
 
 #### Set up a webscraper for an html called “Michelangelo.html” located in the root folder of the project, and retrieve alle p elements in the file to an arraylist
 ```java
 File fileToScrape = new File("../Michelangelo.html");
-Scraper scraper2 = Scraper.buildScraperWithHtmlFile(fileToScrape);
+Scraper scraper2 = Scraper.createScraperWithHtmlFile(fileToScrape);
 ArrayList<HtmlElement> paragraphs;
 
-paragraphs = scraper2.getElementsFromTag("p");
+paragraphs = scraper2.getElementsByTag("p");
 ```
 
 ## TemplateScraper
@@ -196,20 +196,20 @@ Given the following HTML document:
 
 3. To get the text inside the span element, the Xpath to this element is: `//div[@id="my-div"]/span`.
 
-To use these XPath in a scraper, you can use the getElementFromXpath method: 
+To use these XPath in a scraper, you can use the getElementByXpath method: 
 
 ```java 
 // Create a scraper
-Scraper scraper = Scraper.buildScraperWithFile(File fileToScrape);
+Scraper scraper = Scraper.createScraperWithFile(File fileToScrape);
 
 // 1 get element with id "Carlsen"
-HtmlElement element = scraper.getElementFromXpath("//ul/li[@id='Carlsen']");
+HtmlElement element = scraper.getElementByXpath("//ul/li[@id='Carlsen']");
 
 // 2 get all elements with the class "chessplayer"
-ArrayList<HtmlElement> elements = scraper.getElementsFromXpath("//ul/li[@class='chessplayer']");
+ArrayList<HtmlElement> elements = scraper.getElementsByXpath("//ul/li[@class='chessplayer']");
 
 // 3 get the text inside the span element
-String textInsideSpan = scraper.getElementFromXpath("//div[@id='my-div']/span").getText();
+String textInsideSpan = scraper.getElementByXpath("//div[@id='my-div']/span").getText();
 
 ```
 
